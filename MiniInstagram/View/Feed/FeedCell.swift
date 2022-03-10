@@ -9,7 +9,91 @@ import SwiftUI
 
 struct FeedCell: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            
+            // user info
+            HStack {
+                Image("joker")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 36, height: 36)
+                    .clipped()
+                    .cornerRadius(18)
+                
+                Text("Joker")
+                    .font(.system(size: 14, weight: .semibold))
+            } //: HStack
+            .padding([.leading, .bottom], 8)
+            
+            // post images
+            Image("joker")
+                .resizable()
+                .scaledToFill()
+                .frame(maxHeight: 440)
+                .clipped()
+                
+            
+            // action buttons
+            HStack(spacing: 16) {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "heart")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 20, height: 20)
+                        .font(.system(size: 20))
+                        .padding(4)
+                }
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "bubble.right")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 20, height: 20)
+                        .font(.system(size: 20))
+                        .padding(4)
+                }
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "paperplane")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 20, height: 20)
+                        .font(.system(size: 20))
+                        .padding(4)
+                }
+
+            } //: HStack
+            .foregroundColor(.black)
+            .padding(.leading, 4)
+            
+            
+            // captions
+            Text("3 likes")
+                .font(.system(size: 14, weight: .semibold))
+                .padding(.leading, 8)
+                .padding(.bottom, 2)
+            HStack {
+                Text("Joker")
+                    .font(.system(size: 14, weight: .semibold))
+                + Text(" skfnsdkfs klfdmskdlfn skldfnsjl dnfskjdbnfkjs ndfkjsnkjs nfjksjdnfkjsns asdasd asda sdasdkjashd kajsdha as dasd asd")
+                    .font(.system(size: 15))
+            } //: HStack
+            .padding(.horizontal, 8)
+            
+            Text("2d")
+                .font(.system(size: 14))
+                .foregroundColor(.gray)
+                .padding(.leading, 8)
+                .padding(.top, -2)
+            
+        } //: VStack
+        
     }
 }
 

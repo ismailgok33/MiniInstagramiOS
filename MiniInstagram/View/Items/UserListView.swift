@@ -9,7 +9,19 @@ import SwiftUI
 
 struct UserListView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyVStack {
+                ForEach(0 ..< 20) { _ in
+                    NavigationLink {
+                        ProfileView()
+                    } label: {
+                        UserCell()
+                            .padding(.leading)
+                    }
+
+                }
+            }
+        }
     }
 }
 
