@@ -49,6 +49,8 @@
 		ECD2C98327D976250083612E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2C98227D976250083612E /* ProfileView.swift */; };
 		ECD2C98527D9762C0083612E /* UploadPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2C98427D9762C0083612E /* UploadPostView.swift */; };
 		ECD2C98727D978460083612E /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2C98627D978460083612E /* FeedCell.swift */; };
+		ECD3623B27DA64D000C89A4D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3623A27DA64D000C89A4D /* SearchViewModel.swift */; };
+		ECD3623D27DAA4F700C89A4D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3623C27DAA4F700C89A4D /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		ECD2C98227D976250083612E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		ECD2C98427D9762C0083612E /* UploadPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostView.swift; sourceTree = "<group>"; };
 		ECD2C98627D978460083612E /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		ECD3623A27DA64D000C89A4D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		ECD3623C27DAA4F700C89A4D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,7 @@
 				ECD2C97827D975580083612E /* Authentication */,
 				ECD2C97727D975510083612E /* Notification */,
 				ECD2C97627D9754D0083612E /* Feed */,
+				ECD3623A27DA64D000C89A4D /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 		ECD2C97927D9755E0083612E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				ECD3623C27DAA4F700C89A4D /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -416,6 +422,7 @@
 				ECD2C97B27D975E30083612E /* MainTabView.swift in Sources */,
 				EC39653827D9BB9D00CF1D1D /* LoginView.swift in Sources */,
 				ECD2C98527D9762C0083612E /* UploadPostView.swift in Sources */,
+				ECD3623D27DAA4F700C89A4D /* ProfileViewModel.swift in Sources */,
 				EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */,
 				EC6AE2BD27D9A34B00734783 /* ProfileHeaderView.swift in Sources */,
 				EC39654327D9BD9B00CF1D1D /* TextArea.swift in Sources */,
@@ -426,6 +433,7 @@
 				ECD2C98127D9761E0083612E /* NotificationsView.swift in Sources */,
 				ECD2C98727D978460083612E /* FeedCell.swift in Sources */,
 				EC6B47AF27D9A86A001B0BE0 /* ProfileActionButtonView.swift in Sources */,
+				ECD3623B27DA64D000C89A4D /* SearchViewModel.swift in Sources */,
 				EC39653F27D9BD9B00CF1D1D /* CustomTextField.swift in Sources */,
 				EC6AE2B727D999C500734783 /* UserListView.swift in Sources */,
 				EC39654027D9BD9B00CF1D1D /* CustomSecureField.swift in Sources */,
