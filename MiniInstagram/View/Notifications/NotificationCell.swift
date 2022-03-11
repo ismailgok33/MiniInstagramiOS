@@ -22,6 +22,7 @@ struct NotificationCell: View {
     }
     
     var body: some View {
+        // user info
         HStack {
             if let user = viewModel.notification.user {
                 NavigationLink {
@@ -37,6 +38,9 @@ struct NotificationCell: View {
                         .font(.system(size: 14, weight: .semibold))
                     + Text(viewModel.notification.type.notificationMessage)
                         .font(.system(size: 15))
+                    + Text(" \(viewModel.timestampString)").foregroundColor(.gray)
+                        .font(.system(size: 12))
+                        
                 }
 
             }

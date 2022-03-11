@@ -13,6 +13,7 @@ class ProfileViewModel: ObservableObject {
     init(user: User) {
         self.user = user
         checkIfUserIsFollowed()
+        fetchUserStats()
     }
     
     func follow() {
@@ -37,6 +38,25 @@ class ProfileViewModel: ObservableObject {
         guard let uid = user.id else { return }
         UserService.checkIfUserIsFollowed(uid: uid) { isFollowed in
             self.user.isFollowed = isFollowed
+        }
+    }
+    
+    func fetchUserStats() {
+        guard let uid = user.id else { return }
+
+        COLLECTION_FOLLOWING.document(uid).collection("user-following").getDocuments { snapshot, _ in
+            guard let followings = snapshot?.documents.count else { return }
+            
+            COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, _ in
+                guard let followers = snapshot?.documents.count else { return }
+                
+                COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid).getDocuments { snapshot, _ in
+                    guard let posts = snapshot?.documents.count else { return }
+                    
+                    self.user.stats = UserStats(followings: followings, posts: posts, followers: followers)
+                    print("DEBUG: User stats are \(self.user.stats)")
+                }
+            }
         }
     }
 }
