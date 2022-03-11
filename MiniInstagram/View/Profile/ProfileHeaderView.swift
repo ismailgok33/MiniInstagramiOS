@@ -10,12 +10,13 @@ import Kingfisher
 
 struct ProfileHeaderView: View {
     
-    let user: User
+//    let user: User
+    @ObservedObject var viewModel: ProfileViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                KFImage(URL(string: user.profileImageURL))
+                KFImage(URL(string: viewModel.user.profileImageURL))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 80, height: 80)
@@ -33,7 +34,7 @@ struct ProfileHeaderView: View {
                 
             } //: HStack
             
-            Text(user.fullname)
+            Text(viewModel.user.fullname)
                 .font(.system(size: 15, weight: .semibold))
                 .padding([.leading, .top])
             
@@ -45,7 +46,7 @@ struct ProfileHeaderView: View {
             HStack {
                 Spacer()
                 
-                ProfileActionButtonView(isCurrentUser: user.isCurrentUser)
+                ProfileActionButtonView(viewModel: viewModel)
                 
                 Spacer()
                 

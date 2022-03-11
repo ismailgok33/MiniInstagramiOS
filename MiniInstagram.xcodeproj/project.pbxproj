@@ -51,6 +51,7 @@
 		ECD2C98727D978460083612E /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2C98627D978460083612E /* FeedCell.swift */; };
 		ECD3623B27DA64D000C89A4D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3623A27DA64D000C89A4D /* SearchViewModel.swift */; };
 		ECD3623D27DAA4F700C89A4D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3623C27DAA4F700C89A4D /* ProfileViewModel.swift */; };
+		ECD3623F27DAC73900C89A4D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3623E27DAC73900C89A4D /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		ECD2C98627D978460083612E /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		ECD3623A27DA64D000C89A4D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		ECD3623C27DAA4F700C89A4D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		ECD3623E27DAC73900C89A4D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				EC39654427D9C3FF00CF1D1D /* ImageUploader.swift */,
+				ECD3623E27DAC73900C89A4D /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				ECD3623D27DAA4F700C89A4D /* ProfileViewModel.swift in Sources */,
 				EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */,
 				EC6AE2BD27D9A34B00734783 /* ProfileHeaderView.swift in Sources */,
+				ECD3623F27DAC73900C89A4D /* UserService.swift in Sources */,
 				EC39654327D9BD9B00CF1D1D /* TextArea.swift in Sources */,
 				ECD2C98327D976250083612E /* ProfileView.swift in Sources */,
 				EC6B47AD27D9A769001B0BE0 /* UserStatView.swift in Sources */,
