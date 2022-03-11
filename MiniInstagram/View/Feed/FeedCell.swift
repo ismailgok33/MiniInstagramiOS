@@ -6,27 +6,39 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FeedCell: View {
+    
+    @ObservedObject var viewModel: FeedCellViewModel
+    
+    var didLike: Bool {
+        return viewModel.post.didLike ?? false
+    }
+    
+    init(viewModel: FeedCellViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             
             // user info
             HStack {
-                Image("joker")
+                KFImage(URL(string: viewModel.post.ownerImageURL))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 36, height: 36)
                     .clipped()
                     .cornerRadius(18)
                 
-                Text("Joker")
+                Text(viewModel.post.ownerUsername)
                     .font(.system(size: 14, weight: .semibold))
             } //: HStack
             .padding([.leading, .bottom], 8)
             
             // post images
-            Image("joker")
+            KFImage(URL(string: viewModel.post.imageURL))
                 .resizable()
                 .scaledToFill()
                 .frame(maxHeight: 440)
@@ -36,18 +48,19 @@ struct FeedCell: View {
             // action buttons
             HStack(spacing: 16) {
                 Button {
-                    
+                    didLike ? viewModel.unlike() : viewModel.like()
                 } label: {
-                    Image(systemName: "heart")
+                    Image(systemName: didLike ? "heart.fill" : "heart")
                         .resizable()
                         .scaledToFill()
+                        .foregroundColor(didLike ? .red : .black)
                         .frame(width: 20, height: 20)
                         .font(.system(size: 20))
                         .padding(4)
                 }
                 
-                Button {
-                    
+                NavigationLink {
+                    CommentsView()
                 } label: {
                     Image(systemName: "bubble.right")
                         .resizable()
@@ -56,6 +69,7 @@ struct FeedCell: View {
                         .font(.system(size: 20))
                         .padding(4)
                 }
+
                 
                 Button {
                     
@@ -74,14 +88,14 @@ struct FeedCell: View {
             
             
             // captions
-            Text("3 likes")
+            Text(viewModel.likesString)
                 .font(.system(size: 14, weight: .semibold))
                 .padding(.leading, 8)
                 .padding(.bottom, 2)
             HStack {
-                Text("Joker")
+                Text(viewModel.post.ownerUsername)
                     .font(.system(size: 14, weight: .semibold))
-                + Text(" skfnsdkfs klfdmskdlfn skldfnsjl dnfskjdbnfkjs ndfkjsnkjs nfjksjdnfkjsns asdasd asda sdasdkjashd kajsdha as dasd asd")
+                + Text(" \(viewModel.post.caption)")
                     .font(.system(size: 15))
             } //: HStack
             .padding(.horizontal, 8)
@@ -97,8 +111,8 @@ struct FeedCell: View {
     }
 }
 
-struct FeedCell_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedCell()
-    }
-}
+//struct FeedCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FeedCell()
+//    }
+//}
