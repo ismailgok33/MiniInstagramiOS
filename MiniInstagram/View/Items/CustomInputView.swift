@@ -34,11 +34,11 @@ struct CustomInputView: View {
                 }
 
             } //: HStack
-            
+            .padding(.bottom, 8)
+            .padding(.horizontal)
             
         } //: VStack
-        .padding(.bottom, 8)
-        .padding(.horizontal)
+        
     }
 }
 

@@ -22,7 +22,6 @@ struct FeedCell: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            
             // user info
             HStack {
                 KFImage(URL(string: viewModel.post.ownerImageURL))
@@ -60,7 +59,7 @@ struct FeedCell: View {
                 }
                 
                 NavigationLink {
-                    CommentsView()
+                    CommentsView(post: viewModel.post)
                 } label: {
                     Image(systemName: "bubble.right")
                         .resizable()

@@ -62,6 +62,9 @@
 		ECD3624F27DB211F00C89A4D /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3624E27DB211F00C89A4D /* CommentCell.swift */; };
 		ECD3625127DB213A00C89A4D /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625027DB213A00C89A4D /* CommentViewModel.swift */; };
 		ECD3625327DB242700C89A4D /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625227DB242700C89A4D /* CustomInputView.swift */; };
+		ECD3625527DB312C00C89A4D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625427DB312C00C89A4D /* Notification.swift */; };
+		ECD3625727DB32AF00C89A4D /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625627DB32AF00C89A4D /* NotificationsViewModel.swift */; };
+		ECD3625927DB3B2000C89A4D /* NotificationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625827DB3B2000C89A4D /* NotificationCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +115,9 @@
 		ECD3624E27DB211F00C89A4D /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		ECD3625027DB213A00C89A4D /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		ECD3625227DB242700C89A4D /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
+		ECD3625427DB312C00C89A4D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		ECD3625627DB32AF00C89A4D /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
+		ECD3625827DB3B2000C89A4D /* NotificationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +186,7 @@
 				EC39654627D9D9E200CF1D1D /* User.swift */,
 				ECD3624227DAFDEA00C89A4D /* Post.swift */,
 				ECD3624A27DB20EE00C89A4D /* Comment.swift */,
+				ECD3625427DB312C00C89A4D /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -335,6 +342,8 @@
 		ECD2C97727D975510083612E /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				ECD3625627DB32AF00C89A4D /* NotificationsViewModel.swift */,
+				ECD3625827DB3B2000C89A4D /* NotificationCellViewModel.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -446,9 +455,11 @@
 				ECD2C97F27D976150083612E /* SearchView.swift in Sources */,
 				EC39653927D9BB9D00CF1D1D /* RegistrationView.swift in Sources */,
 				ECD2C97D27D975F80083612E /* FeedView.swift in Sources */,
+				ECD3625727DB32AF00C89A4D /* NotificationsViewModel.swift in Sources */,
 				EC39653727D9BB9D00CF1D1D /* ResetPasswordView.swift in Sources */,
 				EC6AE2B327D9987C00734783 /* PostGridView.swift in Sources */,
 				EC39654227D9BD9B00CF1D1D /* LazyView.swift in Sources */,
+				ECD3625527DB312C00C89A4D /* Notification.swift in Sources */,
 				ECD2C96D27D973FC0083612E /* ContentView.swift in Sources */,
 				EC39654727D9D9E200CF1D1D /* User.swift in Sources */,
 				EC39654127D9BD9B00CF1D1D /* Constants.swift in Sources */,
@@ -468,6 +479,7 @@
 				ECD2C98327D976250083612E /* ProfileView.swift in Sources */,
 				ECD3624D27DB210C00C89A4D /* CommentsView.swift in Sources */,
 				EC6B47AD27D9A769001B0BE0 /* UserStatView.swift in Sources */,
+				ECD3625927DB3B2000C89A4D /* NotificationCellViewModel.swift in Sources */,
 				EC6AE2B527D999BC00734783 /* UserCell.swift in Sources */,
 				EC6AE2B127D9974600734783 /* SearchBar.swift in Sources */,
 				ECD2C98127D9761E0083612E /* NotificationsView.swift in Sources */,
