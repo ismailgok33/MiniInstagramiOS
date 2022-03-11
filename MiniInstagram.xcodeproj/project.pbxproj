@@ -38,6 +38,7 @@
 		EC6AE2BD27D9A34B00734783 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6AE2BC27D9A34B00734783 /* ProfileHeaderView.swift */; };
 		EC6B47AD27D9A769001B0BE0 /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B47AC27D9A769001B0BE0 /* UserStatView.swift */; };
 		EC6B47AF27D9A86A001B0BE0 /* ProfileActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B47AE27D9A86A001B0BE0 /* ProfileActionButtonView.swift */; };
+		ECB981BA27DC0B670077BCB7 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB981B927DC0B670077BCB7 /* EditProfileView.swift */; };
 		ECD2C95927D973400083612E /* MiniInstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2C95827D973400083612E /* MiniInstagramApp.swift */; };
 		ECD2C95D27D973420083612E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD2C95C27D973420083612E /* Assets.xcassets */; };
 		ECD2C96027D973420083612E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD2C95F27D973420083612E /* Preview Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		EC6AE2BC27D9A34B00734783 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		EC6B47AC27D9A769001B0BE0 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
 		EC6B47AE27D9A86A001B0BE0 /* ProfileActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButtonView.swift; sourceTree = "<group>"; };
+		ECB981B927DC0B670077BCB7 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		ECD2C95527D973400083612E /* MiniInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD2C95827D973400083612E /* MiniInstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniInstagramApp.swift; sourceTree = "<group>"; };
 		ECD2C95C27D973420083612E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				EC6AE2BC27D9A34B00734783 /* ProfileHeaderView.swift */,
 				EC6B47AC27D9A769001B0BE0 /* UserStatView.swift */,
 				EC6B47AE27D9A86A001B0BE0 /* ProfileActionButtonView.swift */,
+				ECB981B927DC0B670077BCB7 /* EditProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				ECD2C97B27D975E30083612E /* MainTabView.swift in Sources */,
 				EC39653827D9BB9D00CF1D1D /* LoginView.swift in Sources */,
 				ECD2C98527D9762C0083612E /* UploadPostView.swift in Sources */,
+				ECB981BA27DC0B670077BCB7 /* EditProfileView.swift in Sources */,
 				ECD3624F27DB211F00C89A4D /* CommentCell.swift in Sources */,
 				ECD3623D27DAA4F700C89A4D /* ProfileViewModel.swift in Sources */,
 				EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */,
