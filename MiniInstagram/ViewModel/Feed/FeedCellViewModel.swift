@@ -11,8 +11,8 @@ class FeedCellViewModel: ObservableObject {
     @Published var post: Post
     
     var likesString: String {
-        let label = post.likes == 1 ? "like" : "likes"
-        return "\(post.likes) \(label)"
+        let label = post.likes > 999 ? "\(post.likes / 1000)k" : "\(post.likes)"
+        return label
     }
     
     var timestampString: String {

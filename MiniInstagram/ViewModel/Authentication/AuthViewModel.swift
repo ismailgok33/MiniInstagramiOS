@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import GoogleSignIn
 
 class AuthViewModel: ObservableObject {
     
@@ -18,6 +19,55 @@ class AuthViewModel: ObservableObject {
     init() {
         userSession = Auth.auth().currentUser
         fetchUser()
+    }
+    
+    func googleLogin() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: LoginView.getRootViewController()) {[self] user, error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+              }
+
+              guard
+                let authentication = user?.authentication,
+                let idToken = authentication.idToken
+              else {
+                return
+              }
+
+              let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                             accessToken: authentication.accessToken)
+            
+            // Firebase Auth
+            Auth.auth().signIn(with: credential) { result, error in
+                if let error = error {
+                    print("DEBUG: Login failed: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let user = result?.user else { return }
+                
+                let data = ["email": user.email, "username": user.displayName, "fullname": user.displayName, "profileImageURL": user.photoURL?.absoluteString, "uid": user.uid]
+                
+//                self.userSession = user
+//                self.fetchUser()
+                
+                print("DEBUG: data is \(data)")
+                
+                COLLECTION_USERS.document(user.uid).setData(data) { _ in
+                    print("DEBUG: Successfully uploaded user data..")
+                    self.userSession = user
+                    self.fetchUser()
+                }
+            }
+            
+        }
     }
     
     func login(withEmail email: String, password: String) {

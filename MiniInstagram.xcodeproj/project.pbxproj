@@ -40,6 +40,9 @@
 		EC6B47AF27D9A86A001B0BE0 /* ProfileActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B47AE27D9A86A001B0BE0 /* ProfileActionButtonView.swift */; };
 		ECB981BA27DC0B670077BCB7 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB981B927DC0B670077BCB7 /* EditProfileView.swift */; };
 		ECB981BC27DC211A0077BCB7 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB981BB27DC211A0077BCB7 /* EditProfileViewModel.swift */; };
+		ECB981C427DC5A250077BCB7 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = ECB981C327DC5A250077BCB7 /* GoogleSignIn */; };
+		ECB981C627DC744A0077BCB7 /* EmailLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB981C527DC744A0077BCB7 /* EmailLoginView.swift */; };
+		ECB981CB27DC835C0077BCB7 /* FeedCellDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB981CA27DC835C0077BCB7 /* FeedCellDetail.swift */; };
 		ECD2C95927D973400083612E /* MiniInstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2C95827D973400083612E /* MiniInstagramApp.swift */; };
 		ECD2C95D27D973420083612E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD2C95C27D973420083612E /* Assets.xcassets */; };
 		ECD2C96027D973420083612E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD2C95F27D973420083612E /* Preview Assets.xcassets */; };
@@ -94,6 +97,9 @@
 		EC6B47AE27D9A86A001B0BE0 /* ProfileActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButtonView.swift; sourceTree = "<group>"; };
 		ECB981B927DC0B670077BCB7 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		ECB981BB27DC211A0077BCB7 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		ECB981C127DC56FA0077BCB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		ECB981C527DC744A0077BCB7 /* EmailLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginView.swift; sourceTree = "<group>"; };
+		ECB981CA27DC835C0077BCB7 /* FeedCellDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellDetail.swift; sourceTree = "<group>"; };
 		ECD2C95527D973400083612E /* MiniInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD2C95827D973400083612E /* MiniInstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniInstagramApp.swift; sourceTree = "<group>"; };
 		ECD2C95C27D973420083612E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 				EC39655827D9DB2800CF1D1D /* FirebaseStorage in Frameworks */,
 				EC39655427D9DB2800CF1D1D /* FirebaseFunctions in Frameworks */,
 				EC39654E27D9DB2800CF1D1D /* FirebaseCrashlytics in Frameworks */,
+				ECB981C427DC5A250077BCB7 /* GoogleSignIn in Frameworks */,
 				EC39654C27D9DB2800CF1D1D /* FirebaseAuth in Frameworks */,
 				EC39655227D9DB2800CF1D1D /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				EC39655027D9DB2800CF1D1D /* FirebaseFirestore in Frameworks */,
@@ -163,6 +170,7 @@
 		ECD2C95727D973400083612E /* MiniInstagram */ = {
 			isa = PBXGroup;
 			children = (
+				ECB981C127DC56FA0077BCB7 /* Info.plist */,
 				ECD2C96627D973870083612E /* Model */,
 				ECD2C96A27D973900083612E /* View */,
 				ECD2C96927D9738F0083612E /* ViewModel */,
@@ -283,6 +291,7 @@
 			children = (
 				ECD2C97C27D975F80083612E /* FeedView.swift */,
 				ECD2C98627D978460083612E /* FeedCell.swift */,
+				ECB981CA27DC835C0077BCB7 /* FeedCellDetail.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -320,6 +329,7 @@
 				EC39653527D9BB9D00CF1D1D /* LoginView.swift */,
 				EC39653627D9BB9D00CF1D1D /* RegistrationView.swift */,
 				EC39653427D9BB9D00CF1D1D /* ResetPasswordView.swift */,
+				ECB981C527DC744A0077BCB7 /* EmailLoginView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -396,6 +406,7 @@
 				EC39655327D9DB2800CF1D1D /* FirebaseFunctions */,
 				EC39655527D9DB2800CF1D1D /* FirebaseMessaging */,
 				EC39655727D9DB2800CF1D1D /* FirebaseStorage */,
+				ECB981C327DC5A250077BCB7 /* GoogleSignIn */,
 			);
 			productName = MiniInstagram;
 			productReference = ECD2C95527D973400083612E /* MiniInstagram.app */;
@@ -428,6 +439,7 @@
 			packageReferences = (
 				EC39652D27D9B82C00CF1D1D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				EC39654827D9DB2800CF1D1D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				ECB981C227DC5A250077BCB7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = ECD2C95627D973400083612E /* Products */;
 			projectDirPath = "";
@@ -463,6 +475,7 @@
 				ECD2C97D27D975F80083612E /* FeedView.swift in Sources */,
 				ECD3625727DB32AF00C89A4D /* NotificationsViewModel.swift in Sources */,
 				EC39653727D9BB9D00CF1D1D /* ResetPasswordView.swift in Sources */,
+				ECB981C627DC744A0077BCB7 /* EmailLoginView.swift in Sources */,
 				EC6AE2B327D9987C00734783 /* PostGridView.swift in Sources */,
 				EC39654227D9BD9B00CF1D1D /* LazyView.swift in Sources */,
 				ECD3625527DB312C00C89A4D /* Notification.swift in Sources */,
@@ -475,6 +488,7 @@
 				EC39653827D9BB9D00CF1D1D /* LoginView.swift in Sources */,
 				ECD2C98527D9762C0083612E /* UploadPostView.swift in Sources */,
 				ECB981BA27DC0B670077BCB7 /* EditProfileView.swift in Sources */,
+				ECB981CB27DC835C0077BCB7 /* FeedCellDetail.swift in Sources */,
 				ECD3624F27DB211F00C89A4D /* CommentCell.swift in Sources */,
 				ECD3623D27DAA4F700C89A4D /* ProfileViewModel.swift in Sources */,
 				EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */,
@@ -637,6 +651,7 @@
 				DEVELOPMENT_TEAM = G3P4L7GVWA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MiniInstagram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -668,6 +683,7 @@
 				DEVELOPMENT_TEAM = G3P4L7GVWA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MiniInstagram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -728,6 +744,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		ECB981C227DC5A250077BCB7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -775,6 +799,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC39654827D9DB2800CF1D1D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		ECB981C327DC5A250077BCB7 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECB981C227DC5A250077BCB7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

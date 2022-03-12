@@ -56,7 +56,7 @@ class NotificationCellViewModel: ObservableObject {
     func fetchNotificationUser() {
         COLLECTION_USERS.document(notification.uid).getDocument { snapshot, _ in
             self.notification.user = try? snapshot?.data(as: User.self)
-            print("User is \(self.notification.user?.username)")
+//            print("User is \(self.notification.user?.username)")
         }
     }
 }
