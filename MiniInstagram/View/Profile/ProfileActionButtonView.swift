@@ -33,7 +33,7 @@ struct ProfileActionButtonView: View {
             }.sheet(isPresented: $showEditProfile) {
                 
             } content: {
-                EditProfileView()
+                EditProfileView(user: $viewModel.user)
             }
 
         }

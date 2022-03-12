@@ -39,6 +39,7 @@
 		EC6B47AD27D9A769001B0BE0 /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B47AC27D9A769001B0BE0 /* UserStatView.swift */; };
 		EC6B47AF27D9A86A001B0BE0 /* ProfileActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B47AE27D9A86A001B0BE0 /* ProfileActionButtonView.swift */; };
 		ECB981BA27DC0B670077BCB7 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB981B927DC0B670077BCB7 /* EditProfileView.swift */; };
+		ECB981BC27DC211A0077BCB7 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB981BB27DC211A0077BCB7 /* EditProfileViewModel.swift */; };
 		ECD2C95927D973400083612E /* MiniInstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD2C95827D973400083612E /* MiniInstagramApp.swift */; };
 		ECD2C95D27D973420083612E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD2C95C27D973420083612E /* Assets.xcassets */; };
 		ECD2C96027D973420083612E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD2C95F27D973420083612E /* Preview Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		EC6B47AC27D9A769001B0BE0 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
 		EC6B47AE27D9A86A001B0BE0 /* ProfileActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButtonView.swift; sourceTree = "<group>"; };
 		ECB981B927DC0B670077BCB7 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		ECB981BB27DC211A0077BCB7 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		ECD2C95527D973400083612E /* MiniInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD2C95827D973400083612E /* MiniInstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniInstagramApp.swift; sourceTree = "<group>"; };
 		ECD2C95C27D973420083612E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD3623C27DAA4F700C89A4D /* ProfileViewModel.swift */,
+				ECB981BB27DC211A0077BCB7 /* EditProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */,
 				ECD3625327DB242700C89A4D /* CustomInputView.swift in Sources */,
 				EC6AE2BD27D9A34B00734783 /* ProfileHeaderView.swift in Sources */,
+				ECB981BC27DC211A0077BCB7 /* EditProfileViewModel.swift in Sources */,
 				ECD3623F27DAC73900C89A4D /* UserService.swift in Sources */,
 				EC39654327D9BD9B00CF1D1D /* TextArea.swift in Sources */,
 				ECD3624327DAFDEA00C89A4D /* Post.swift in Sources */,
@@ -638,7 +642,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -669,7 +673,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

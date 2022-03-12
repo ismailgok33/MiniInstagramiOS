@@ -15,6 +15,7 @@ class FeedViewModel: ObservableObject {
         fetchPosts()
     }
     
+    // change it to fetch only followed user's posts
     func fetchPosts() {
         COLLECTION_POSTS.order(by: "timestamp", descending: true).getDocuments { snapshot, _ in
             guard let document = snapshot?.documents else { return }
