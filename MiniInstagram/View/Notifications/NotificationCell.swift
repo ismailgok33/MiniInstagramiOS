@@ -50,7 +50,8 @@ struct NotificationCell: View {
             if viewModel.notification.type != .follow {
                 if let post = viewModel.notification.post {
                     NavigationLink {
-                        FeedCell(viewModel: FeedCellViewModel(post: post))
+//                        FeedCell(viewModel: FeedCellViewModel(post: post))
+                        FeedCell(post: post)
                     } label: {
                         KFImage(URL(string: post.imageURL))
                             .resizable()

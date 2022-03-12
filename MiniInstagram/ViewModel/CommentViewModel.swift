@@ -38,6 +38,23 @@ class CommentViewModel: ObservableObject {
         }
     }
     
+    func deleteComment(uid: String) {
+        guard let user = AuthViewModel.shared.currentUser else { return }
+        
+        // if the user is not the comment owner, don't delete
+        guard user.id == uid else { return }
+        
+        guard let postId = post.id else { return }
+        
+        COLLECTION_POSTS.document(postId).collection("post-comments").document(uid).delete { error in
+            if let error = error {
+                print("DEBUG: Error removing document: \(error.localizedDescription)")
+            } else {
+                print("DEBUG: Document with id \(uid) successfully removed!")
+            }
+        }
+    }
+    
     func fetchComments() {
         guard let postId = post.id else { return }
         

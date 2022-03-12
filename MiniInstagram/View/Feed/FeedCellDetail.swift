@@ -22,9 +22,11 @@ struct FeedCellDetail: View {
     
     var body: some View {
         VStack {
+            // Feed Cell
+//            FeedCell(viewModel: feedViewModel)
+            FeedCell(post: feedViewModel.post)
             
-            FeedCell(viewModel: feedViewModel)
-            
+            // Who liked the post
             HStack {
             
                 Circle()
@@ -48,6 +50,7 @@ struct FeedCellDetail: View {
             } //: HStack
             .padding()
             
+            // Comment Cell
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 24) {
                     ForEach(commentViewModel.comments) { comment in
@@ -64,8 +67,17 @@ struct FeedCellDetail: View {
             .ignoresSafeArea(.all, edges: [.bottom])
             .padding(.top)
             
+            // input view
+            CustomInputView(inputText: $commentText, action: uploadComment)
+            
         } //: VStack
+    } //: body
+    
+    func uploadComment() {
+        commentViewModel.uploadComment(commentText: commentText)
+        commentText = ""
     }
+    
 }
 
 struct FeedCellDetail_Previews: PreviewProvider {
