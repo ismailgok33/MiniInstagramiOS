@@ -12,8 +12,8 @@ import Kingfisher
 struct FeedCellDetail: View {
     
     @ObservedObject var feedViewModel: FeedCellViewModel
-    @State var commentText = ""
     @ObservedObject var commentViewModel: CommentViewModel
+    @State var commentText = ""
     
     init(post: Post) {
         self.feedViewModel = FeedCellViewModel(post: post)

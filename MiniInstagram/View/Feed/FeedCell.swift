@@ -101,7 +101,8 @@ struct FeedCell: View {
                         HStack {
                             
                             NavigationLink {
-                                CommentsView(post: viewModel.post)
+//                                CommentsView(post: viewModel.post)
+                                FeedCellDetail(post: viewModel.post)
                             } label: {
                                 Image(systemName: "bubble.right")
                                     .resizable()
