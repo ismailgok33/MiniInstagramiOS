@@ -93,7 +93,7 @@ struct LoginView: View {
                                 }
                             }).padding(.bottom, 16)
                         
-                        Image("google_logo")
+                        Image("app_logo")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 70, height: 70)

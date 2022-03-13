@@ -24,26 +24,26 @@ struct RegistrationView: View {
                 .ignoresSafeArea()
             
             VStack {
-                ZStack {
-                    if let image = image {
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 140, height: 140)
-                            .clipShape(Circle())
-                    } else {
-                        Button(action: { imagePickerPresented.toggle() }, label: {
-                            Image("plus_photo")
-                                .renderingMode(.template)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 140, height: 140)
-                                .foregroundColor(.white)
-                        }).sheet(isPresented: $imagePickerPresented, onDismiss: loadImage, content: {
-                            ImagePicker(image: $selectedImage)
-                        })
-                    }
-                }
+//                ZStack {
+//                    if let image = image {
+//                        image
+//                            .resizable()
+//                            .scaledToFill()
+//                            .frame(width: 140, height: 140)
+//                            .clipShape(Circle())
+//                    } else {
+//                        Button(action: { imagePickerPresented.toggle() }, label: {
+//                            Image("plus_photo")
+//                                .renderingMode(.template)
+//                                .resizable()
+//                                .scaledToFill()
+//                                .frame(width: 140, height: 140)
+//                                .foregroundColor(.white)
+//                        }).sheet(isPresented: $imagePickerPresented, onDismiss: loadImage, content: {
+//                            ImagePicker(image: $selectedImage)
+//                        })
+//                    }
+//                }
                 
                 VStack(spacing: 20) {
                     CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")

@@ -26,6 +26,7 @@ class FeedCellViewModel: ObservableObject {
     init(post: Post) {
         self.post = post
         checkIfUserLikedPost()
+        checkIfUserFlaggedPost()
     }
     
     func like() {
@@ -69,6 +70,49 @@ class FeedCellViewModel: ObservableObject {
         COLLECTION_USERS.document(uid).collection("user-likes").document(postId).getDocument { snapshot, _ in
             guard let didLike = snapshot?.exists else { return }
             self.post.didLike = didLike
+        }
+    }
+    
+    func flag() {
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        guard let postId = post.id else { return }
+        
+        COLLECTION_POSTS.document(postId).collection("post-flags").document(uid).setData([:]) { _ in
+            COLLECTION_USERS.document(uid).collection("user-flags").document(postId).setData([:]) { _ in
+                
+//                COLLECTION_POSTS.document(postId).updateData(["likes": self.post.likes + 1])
+                
+//                NotificationsViewModel.uploadNotifications(toUid: self.post.ownerUid, type: .like, post: self.post)
+                
+                self.post.didFlag = true
+//                self.post.likes += 1
+            }
+        }
+    }
+    
+    func unFlag() {
+        guard post.likes > 0 else { return }
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        guard let postId = post.id else { return }
+        
+        COLLECTION_POSTS.document(postId).collection("post-flags").document(uid).delete { _ in
+            COLLECTION_USERS.document(uid).collection("user-flags").document(postId).delete { _ in
+                
+//                COLLECTION_POSTS.document(postId).updateData(["likes": self.post.likes - 1])
+                
+                self.post.didFlag = false
+//                self.post.likes -= 1
+            }
+        }
+    }
+    
+    func checkIfUserFlaggedPost() {
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        guard let postId = post.id else { return }
+        
+        COLLECTION_USERS.document(uid).collection("user-flags").document(postId).getDocument { snapshot, _ in
+            guard let didFlag = snapshot?.exists else { return }
+            self.post.didFlag = didFlag
         }
     }
 }

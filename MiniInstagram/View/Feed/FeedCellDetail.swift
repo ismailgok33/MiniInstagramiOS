@@ -14,6 +14,8 @@ struct FeedCellDetail: View {
     @ObservedObject var feedViewModel: FeedCellViewModel
     @ObservedObject var commentViewModel: CommentViewModel
     @State var commentText = ""
+    @State var cardShown = false
+    @State var cardDismissal = false
     
     init(post: Post) {
         self.feedViewModel = FeedCellViewModel(post: post)
@@ -21,61 +23,82 @@ struct FeedCellDetail: View {
     }
     
     var body: some View {
-        VStack {
-            // Feed Cell
-//            FeedCell(viewModel: feedViewModel)
-            FeedCell(post: feedViewModel.post)
-            
-            // Who liked the post
-            HStack {
-            
-                Circle()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(.blue)
+        ZStack {
+            VStack {
+                // Feed Cell
+    //            FeedCell(viewModel: feedViewModel)
+                FeedCell(post: feedViewModel.post)
                 
-                VStack(alignment: .leading) {
-                    
-                    Text("Liked by")
-                        .font(.system(size: 14, weight: .semibold))
-                    
-                    Text("Sean, John,")
-                        .font(.system(size: 14, weight: .bold))
-                    + Text("and 120 others")
-                        .font(.system(size: 14, weight: .regular))
-                    
-                } //: VStack
+                // Who liked the post
+                HStack {
                 
-                Spacer()
+                    Circle()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.blue)
+                    
+                    VStack(alignment: .leading) {
+                        
+                        Text("Liked by")
+                            .font(.system(size: 14, weight: .semibold))
+                        
+                        Text("Sean, John,")
+                            .font(.system(size: 14, weight: .bold))
+                        + Text("and 120 others")
+                            .font(.system(size: 14, weight: .regular))
+                        
+                    } //: VStack
+                    
+                    Spacer()
+                    
+                } //: HStack
+                .padding()
                 
-            } //: HStack
-            .padding()
-            
-            // Comment Cell
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 24) {
-                    ForEach(commentViewModel.comments) { comment in
-                        CommentCell(comment: comment)
+                // Comment Cell
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 24) {
+                        ForEach(commentViewModel.comments) { comment in
+                            CommentCell(viewModel: commentViewModel, comment: comment)
+                        }
+                        .onDelete(perform: deleteComment)
                     }
                 }
-            }
-            .padding(.top)
-            .frame(width: UIScreen.main.bounds.width)
-            .background(
-                Color.gray
-                .opacity(0.1)
-            )
-            .ignoresSafeArea(.all, edges: [.bottom])
-            .padding(.top)
+                .padding(.top)
+                .frame(width: UIScreen.main.bounds.width)
+                .background(
+                    Color.gray
+                    .opacity(0.1)
+                )
+                .ignoresSafeArea(.all, edges: [.bottom])
+                .padding(.top)
+                
+                // input view
+                CustomInputView(inputText: $commentText, action: uploadComment)
+                
+            } //: VStack
             
-            // input view
-            CustomInputView(inputText: $commentText, action: uploadComment)
+            // Action Sheet (Bottom card view)
+//            BottomCardView(cardShown: $cardShown, cardDismissal: $cardDismissal, height: UIScreen.main.bounds.height / 5) {
+//                CardContent()
+//                    .padding()
+//            }
+//            BottomCardView(cardShown: $cardShown, cardDismissal: $cardDismissal, height: UIScreen.main.bounds.height / 5, post: feedViewModel.post, commentUid: "")
+//            .animation(.default)
             
-        } //: VStack
+        } //: ZStack
+        
+        
+        
     } //: body
     
     func uploadComment() {
         commentViewModel.uploadComment(commentText: commentText)
         commentText = ""
+    }
+    
+    func deleteComment(at offset: IndexSet) {
+        let index = offset[offset.startIndex]
+        let commentId = commentViewModel.comments[index].uid
+        commentViewModel.deleteComment(uid: commentId)
     }
     
 }

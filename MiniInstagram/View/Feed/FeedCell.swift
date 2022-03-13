@@ -18,6 +18,10 @@ struct FeedCell: View {
         return viewModel.post.didLike ?? false
     }
     
+    var didFlag: Bool {
+        return viewModel.post.didFlag ?? false
+    }
+    
 //    init(viewModel: FeedCellViewModel) {
 //        self.viewModel = viewModel
 //    }
@@ -49,13 +53,19 @@ struct FeedCell: View {
                 
                 Spacer()
                 
-                Image(systemName: "ellipsis.circle")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 24, height: 24)
-                    .font(.system(size: 24))
-                    .padding(4)
-                    .padding(.trailing, 6)
+                Button {
+                    // open sheet to report the post
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 24, height: 24)
+                        .font(.system(size: 24))
+                        .padding(4)
+                        .padding(.trailing, 6)
+                }
+
+               
                 
             } //: HStack
             .padding([.leading, .bottom], 8)
@@ -147,12 +157,20 @@ struct FeedCell: View {
                         
                         Spacer()
                         
-                        Image(systemName: "bookmark")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 16, height: 16)
-                            .font(.system(size: 16))
-                            .padding(4)
+                        // Flag
+                        Button {
+                            didFlag ? viewModel.unFlag() : viewModel.flag()
+                        } label: {
+                            Image(systemName: didFlag ? "bookmark.fill" : "bookmark")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 16, height: 16)
+                                .font(.system(size: 16))
+                                .padding(4)
+                                .foregroundColor(didFlag ? .white : .black)
+                        }
+
+                        
 
                     } //: HStack
                     .foregroundColor(.black)

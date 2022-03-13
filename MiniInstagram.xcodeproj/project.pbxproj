@@ -70,6 +70,8 @@
 		ECD3625527DB312C00C89A4D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625427DB312C00C89A4D /* Notification.swift */; };
 		ECD3625727DB32AF00C89A4D /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625627DB32AF00C89A4D /* NotificationsViewModel.swift */; };
 		ECD3625927DB3B2000C89A4D /* NotificationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625827DB3B2000C89A4D /* NotificationCellViewModel.swift */; };
+		ECEBCD4327DD73CA001F4796 /* BottomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEBCD4227DD73CA001F4796 /* BottomCardView.swift */; };
+		ECEBCD4527DD9560001F4796 /* DeleteModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEBCD4427DD9560001F4796 /* DeleteModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +130,8 @@
 		ECD3625427DB312C00C89A4D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		ECD3625627DB32AF00C89A4D /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		ECD3625827DB3B2000C89A4D /* NotificationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellViewModel.swift; sourceTree = "<group>"; };
+		ECEBCD4227DD73CA001F4796 /* BottomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardView.swift; sourceTree = "<group>"; };
+		ECEBCD4427DD9560001F4796 /* DeleteModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 				EC39653E27D9BD9B00CF1D1D /* TextArea.swift */,
 				EC6AE2B827D99F6000734783 /* Extensions.swift */,
 				EC39651E27D9AEBC00CF1D1D /* ImagePicker.swift */,
+				ECEBCD4427DD9560001F4796 /* DeleteModifier.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				EC6AE2B427D999BC00734783 /* UserCell.swift */,
 				EC6AE2B627D999C500734783 /* UserListView.swift */,
 				ECD3625227DB242700C89A4D /* CustomInputView.swift */,
+				ECEBCD4227DD73CA001F4796 /* BottomCardView.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -487,6 +493,7 @@
 				ECD2C97B27D975E30083612E /* MainTabView.swift in Sources */,
 				EC39653827D9BB9D00CF1D1D /* LoginView.swift in Sources */,
 				ECD2C98527D9762C0083612E /* UploadPostView.swift in Sources */,
+				ECEBCD4327DD73CA001F4796 /* BottomCardView.swift in Sources */,
 				ECB981BA27DC0B670077BCB7 /* EditProfileView.swift in Sources */,
 				ECB981CB27DC835C0077BCB7 /* FeedCellDetail.swift in Sources */,
 				ECD3624F27DB211F00C89A4D /* CommentCell.swift in Sources */,
@@ -496,6 +503,7 @@
 				EC6AE2BD27D9A34B00734783 /* ProfileHeaderView.swift in Sources */,
 				ECB981BC27DC211A0077BCB7 /* EditProfileViewModel.swift in Sources */,
 				ECD3623F27DAC73900C89A4D /* UserService.swift in Sources */,
+				ECEBCD4527DD9560001F4796 /* DeleteModifier.swift in Sources */,
 				EC39654327D9BD9B00CF1D1D /* TextArea.swift in Sources */,
 				ECD3624327DAFDEA00C89A4D /* Post.swift in Sources */,
 				ECD2C98327D976250083612E /* ProfileView.swift in Sources */,

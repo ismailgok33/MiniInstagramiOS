@@ -13,6 +13,14 @@ struct CommentCell: View {
     
     let comment: Comment
     @State var isCommentOwner = true
+//    @Binding var cardShown: Bool
+//    @Binding var cardDismissal: Bool
+    @ObservedObject var viewModel: CommentViewModel
+    
+    init(viewModel: CommentViewModel, comment: Comment) {
+        self.viewModel = viewModel
+        self.comment = comment
+    }
     
     var body: some View {
         HStack {
@@ -30,35 +38,52 @@ struct CommentCell: View {
             
             Spacer()
             
-            if isCommentOwner {
-                Button {
-                    // present delete sheet
-                } label: {
-                    Image(systemName: "ellipsis.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 24, height: 24)
-                        .font(.system(size: 24))
-                        .foregroundColor(.gray)
-                }
-                
-            }
+//            if isCommentOwner {
+//                Button {
+//                    // present delete sheet
+////                    cardShown.toggle()
+////                    cardDismissal.toggle()
+//                    
+//                } label: {
+////                    Image(systemName: "ellipsis.circle")
+////                        .resizable()
+////                        .scaledToFit()
+////                        .frame(width: 24, height: 24)
+////                        .font(.system(size: 24))
+////                        .foregroundColor(.gray)
+//                    Image(systemName: "trash")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: 24, height: 24)
+//                        .font(.system(size: 24))
+//                        .foregroundColor(.gray)
+//                }
+//                
+//            }
             
-            Image(systemName: "heart")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 24, height: 24)
-                .font(.system(size: 24))
-                .foregroundColor(.gray)
-//                .clipped()
+            Button {
+                // like comment action
+            } label: {
+                Image(systemName: "heart")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+                    .font(.system(size: 24))
+                    .foregroundColor(.gray)
+    //                .clipped()
+            }
+
+            
+           
             
         } //: HStack
         .padding(.horizontal)
+        
     }
 }
 
-struct CommentCell_Previews: PreviewProvider {
-    static var previews: some View {
-        CommentCell(comment: Comment(username: "Tercih Kılavuuz", postOwnerUid: "Q2H6do32QwZAEltLso90BFMrXcc2", profileImageURL: "https://lh3.googleusercontent.com/a/AATXAJyBx5qeCx2Q7WSZFutnj29lUWaALbCkUwfOxUl2=s96-c", commentText: "Google first comment", timestamp: Timestamp(date: Date()), uid: "Q2H6do32QwZAEltLso90BFMrXcc2"))
-    }
-}
+//struct CommentCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CommentCell(comment: Comment(username: "Tercih Kılavuuz", postOwnerUid: "Q2H6do32QwZAEltLso90BFMrXcc2", profileImageURL: "https://lh3.googleusercontent.com/a/AATXAJyBx5qeCx2Q7WSZFutnj29lUWaALbCkUwfOxUl2=s96-c", commentText: "Google first comment", timestamp: Timestamp(date: Date()), uid: "Q2H6do32QwZAEltLso90BFMrXcc2"), cardShown: .constant(false), cardDismissal: .constant(false))
+//    }
+//}
