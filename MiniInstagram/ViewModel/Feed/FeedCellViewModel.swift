@@ -115,5 +115,26 @@ class FeedCellViewModel: ObservableObject {
             self.post.didFlag = didFlag
         }
     }
+    
+    func deletePost() {
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        guard let postId = post.id else { return }
+        guard uid == post.ownerUid else { return }
+        
+        // Delete post document
+        COLLECTION_POSTS.document(postId).delete { error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            self.post.deleted = true
+            print("DEBUG: the post successfully deleted.")
+            
+            // TODO: Check if I need to Delete subcollections of post
+            
+        }
+    }
+    
 }
 

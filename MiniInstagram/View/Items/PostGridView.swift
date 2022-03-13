@@ -26,7 +26,7 @@ struct PostGridView: View {
             ForEach(viewModel.posts) { post in
                 NavigationLink {
 //                    FeedCell(viewModel: FeedCellViewModel(post: post))
-                    FeedCell(post: post)
+                    FeedCell(post: post, deleteAction: nil)
                 } label: {
                     KFImage(URL(string: post.imageURL))
                         .resizable()

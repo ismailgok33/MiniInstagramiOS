@@ -20,6 +20,39 @@ class FeedViewModel: ObservableObject {
         COLLECTION_POSTS.order(by: "timestamp", descending: true).getDocuments { snapshot, _ in
             guard let document = snapshot?.documents else { return }
             self.posts = document.compactMap({ try? $0.data(as: Post.self) })
+            
+            snapshot?.documentChanges.forEach({ doc in
+                if doc.type == .removed {
+                    let id = doc.document.documentID
+                    
+                    self.posts.removeAll { post -> Bool in
+                        return post.id == id
+                    }
+                }
+            })
+        }
+    }
+    
+    func deletePost(postId: String) {
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+//        let postId = uid else { return }
+//        guard uid == post.ownerUid else { return }
+        
+        // Delete post document
+        COLLECTION_POSTS.document(postId).delete { error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            self.posts.removeAll { post -> Bool in
+                return post.id == postId
+            }
+            
+            print("DEBUG: the post successfully deleted.")
+            
+            // TODO: Check if I need to Delete subcollections of post
+            
         }
     }
     

@@ -27,7 +27,7 @@ struct FeedCellDetail: View {
             VStack {
                 // Feed Cell
     //            FeedCell(viewModel: feedViewModel)
-                FeedCell(post: feedViewModel.post)
+                FeedCell(post: feedViewModel.post, deleteAction: nil)
                 
                 // Who liked the post
                 HStack {

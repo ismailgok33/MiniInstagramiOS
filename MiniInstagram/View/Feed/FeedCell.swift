@@ -13,6 +13,9 @@ struct FeedCell: View {
     
     @ObservedObject var viewModel: FeedCellViewModel
     @ObservedObject var commentViewModel: CommentViewModel
+    @Environment(\.presentationMode) var presentation
+    
+    var deleteAction: ((String) -> Void)?
     
     var didLike: Bool {
         return viewModel.post.didLike ?? false
@@ -22,11 +25,16 @@ struct FeedCell: View {
         return viewModel.post.didFlag ?? false
     }
     
+    var isPostOwner: Bool {
+        return viewModel.post.ownerUid == AuthViewModel.shared.currentUser?.id
+    }
+    
 //    init(viewModel: FeedCellViewModel) {
 //        self.viewModel = viewModel
 //    }
     
-    init(post: Post) {
+    init(post: Post, deleteAction: ((String) -> Void)?) {
+        self.deleteAction = deleteAction
         self.viewModel = FeedCellViewModel(post: post)
         self.commentViewModel = CommentViewModel(post: post)
     }
@@ -53,17 +61,40 @@ struct FeedCell: View {
                 
                 Spacer()
                 
-                Button {
-                    // open sheet to report the post
+                Menu {
+                    if isPostOwner {
+                        
+                        Text("Edit")
+                        
+                        Button {
+                            if let deleteAction = deleteAction {
+                                deleteAction(viewModel.post.id ?? "")
+                            }
+                            else {
+                                viewModel.deletePost()
+                                presentation.wrappedValue.dismiss()
+                                
+                            }
+                        } label: {
+                            Text("Delete")
+                        }
+
+                    }
+                    else {
+                        Text("Report")
+                    }
+                    
                 } label: {
                     Image(systemName: "ellipsis.circle")
                         .resizable()
+                        .renderingMode(.template)
                         .scaledToFill()
                         .frame(width: 24, height: 24)
                         .font(.system(size: 24))
                         .padding(4)
                         .padding(.trailing, 6)
                 }
+                
 
                
                 
@@ -209,6 +240,6 @@ struct FeedCell: View {
 
 struct FeedCell_Previews: PreviewProvider {
     static var previews: some View {
-        FeedCell(post: Post(id: "8rh7m8L89tLtvRoJnA8g", ownerUid: "Q2H6do32QwZAEltLso90BFMrXcc2", ownerUsername: "Tercih Kılavuuz", caption: "Google first post", likes: 1, imageURL: "https://firebasestorage.googleapis.com:443/v0/b/miniinstagram-5b2c2.appspot.com/o/post_images%2FF933C413-8E8A-4462-ADC2-4505E602B9ED?alt=media&token=bb198ab4-92a5-4e1b-9aea-6cbf7db8feeb", timestamp: Timestamp(date: Date()), ownerImageURL: "https://lh3.googleusercontent.com/a/AATXAJyBx5qeCx2Q7WSZFutnj29lUWaALbCkUwfOxUl2=s96-c", didLike: false, user: nil))
+        FeedCell(post: Post(id: "8rh7m8L89tLtvRoJnA8g", ownerUid: "Q2H6do32QwZAEltLso90BFMrXcc2", ownerUsername: "Tercih Kılavuuz", caption: "Google first post", likes: 1, imageURL: "https://firebasestorage.googleapis.com:443/v0/b/miniinstagram-5b2c2.appspot.com/o/post_images%2FF933C413-8E8A-4462-ADC2-4505E602B9ED?alt=media&token=bb198ab4-92a5-4e1b-9aea-6cbf7db8feeb", timestamp: Timestamp(date: Date()), ownerImageURL: "https://lh3.googleusercontent.com/a/AATXAJyBx5qeCx2Q7WSZFutnj29lUWaALbCkUwfOxUl2=s96-c", didLike: false, user: nil), deleteAction: nil)
     }
 }

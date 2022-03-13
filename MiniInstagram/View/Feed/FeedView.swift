@@ -16,12 +16,21 @@ struct FeedView: View {
             LazyVStack(spacing: 32) {
                 ForEach(viewModel.posts) { post in
 //                    FeedCell(viewModel: FeedCellViewModel(post: post))
-                    FeedCell(post: post)
+                    FeedCell(post: post, deleteAction: deletePost)
                 }
             }
             .padding(.top)
         }
+        .onAppear {
+            viewModel.fetchPosts()
+        }
+    } //: body
+        
+    
+    func deletePost(postId: String) {
+        viewModel.deletePost(postId: postId)
     }
+    
 }
 
 struct FeedView_Previews: PreviewProvider {

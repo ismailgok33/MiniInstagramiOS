@@ -21,4 +21,5 @@ struct Post: Identifiable, Decodable {
     var didFlag: Bool? = false
     var didLike: Bool? = false
     var user: User?
+    var deleted: Bool? = false
 }
