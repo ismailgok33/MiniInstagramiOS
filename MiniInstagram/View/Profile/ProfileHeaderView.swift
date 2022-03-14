@@ -12,6 +12,7 @@ struct ProfileHeaderView: View {
     
 //    let user: User
     @ObservedObject var viewModel: ProfileViewModel
+//    @ObservedObject var profileStatsViewModel = ProfileStatsViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,9 +27,19 @@ struct ProfileHeaderView: View {
                 Spacer()
                 
                 HStack( spacing: 16) {
-                    UserStatView(value: viewModel.user.stats?.posts ?? 0, title: "Posts")
-                    UserStatView(value: viewModel.user.stats?.followers ?? 0, title: "Followers")
-                    UserStatView(value: viewModel.user.stats?.followings ?? 0, title: "Following")
+                    
+                    VStack {
+                        Text("\(viewModel.user.stats?.posts ?? 0)")
+                            .font(.system(size: 15, weight: .semibold))
+                        
+                        Text("Posts")
+                            .font(.system(size: 15))
+                    } //: VStack
+                    .frame(width: 80, alignment: .center)
+                    
+                    UserStatView(value: viewModel.user.stats?.followers ?? 0, title: "Followers", viewModel: SearchViewModel(userListType: .followers))
+                    UserStatView(value: viewModel.user.stats?.followings ?? 0, title: "Following", viewModel: SearchViewModel(userListType: .following))
+                    
                 } //: HStack
                 .padding(.trailing, 32)
                 

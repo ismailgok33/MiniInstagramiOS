@@ -10,6 +10,7 @@ import Kingfisher
 
 struct UserCell: View {
     
+    @Environment(\.colorScheme) var colorScheme
     let user: User
     
     var body: some View {
@@ -27,9 +28,11 @@ struct UserCell: View {
             VStack(alignment: .leading) {
                 Text(user.username)
                     .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                 
                 Text(user.fullname)
                       .font(.system(size: 14))
+                      .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
             } //: VStack
             
             Spacer()
