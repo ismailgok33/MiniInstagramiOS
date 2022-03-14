@@ -43,11 +43,11 @@ struct BottomCardView: View {
             VStack {
                 Spacer()
                 
-                VStack {
+                VStack {    
 //                    content
                     
                     Button {
-                        commentViewModel.deleteComment(uid: commentUid)
+                        commentViewModel.deleteComment(commentId: commentUid)
                     } label: {
                         Text("Delete comment")
                             .bold()

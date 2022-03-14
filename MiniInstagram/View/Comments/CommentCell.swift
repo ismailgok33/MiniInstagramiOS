@@ -8,6 +8,7 @@
 import SwiftUI
 import Kingfisher
 import Firebase
+import gRPC_Core
 
 struct CommentCell: View {
     
@@ -38,28 +39,31 @@ struct CommentCell: View {
             
             Spacer()
             
-//            if isCommentOwner {
-//                Button {
-//                    // present delete sheet
-////                    cardShown.toggle()
-////                    cardDismissal.toggle()
-//                    
-//                } label: {
-////                    Image(systemName: "ellipsis.circle")
-////                        .resizable()
-////                        .scaledToFit()
-////                        .frame(width: 24, height: 24)
-////                        .font(.system(size: 24))
-////                        .foregroundColor(.gray)
-//                    Image(systemName: "trash")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 24, height: 24)
-//                        .font(.system(size: 24))
-//                        .foregroundColor(.gray)
-//                }
-//                
-//            }
+            if isCommentOwner {
+                Menu {
+                    
+                    Button {
+                        
+                        viewModel.deleteComment(commentId: comment.id ?? "")
+                        
+                    } label: {
+                        Text("Delete")
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundColor(.red)
+                    }
+
+                    
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
+                        .font(.system(size: 24))
+                        .foregroundColor(.gray)
+                }
+
+                
+            }
             
             Button {
                 // like comment action

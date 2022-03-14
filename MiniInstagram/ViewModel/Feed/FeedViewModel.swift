@@ -38,6 +38,8 @@ class FeedViewModel: ObservableObject {
 //        let postId = uid else { return }
 //        guard uid == post.ownerUid else { return }
         
+        // TODO: check if the user is owner of the post before delete
+        
         // Delete post document
         COLLECTION_POSTS.document(postId).delete { error in
             if let error = error {

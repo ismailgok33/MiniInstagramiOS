@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC35E1DA27DEB0FC005AF018 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35E1D927DEB0FC005AF018 /* NotificationView.swift */; };
+		EC35E1DC27DEB663005AF018 /* NotificationBannerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */; };
 		EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39651E27D9AEBC00CF1D1D /* ImagePicker.swift */; };
 		EC39652F27D9B82C00CF1D1D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EC39652E27D9B82C00CF1D1D /* Kingfisher */; };
 		EC39653127D9B8D900CF1D1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC39653027D9B8D900CF1D1D /* GoogleService-Info.plist */; };
@@ -75,6 +77,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC35E1D927DEB0FC005AF018 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBannerViewModifier.swift; sourceTree = "<group>"; };
 		EC39651E27D9AEBC00CF1D1D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EC39653027D9B8D900CF1D1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC39653227D9BB0100CF1D1D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -347,6 +351,8 @@
 				EC6AE2B627D999C500734783 /* UserListView.swift */,
 				ECD3625227DB242700C89A4D /* CustomInputView.swift */,
 				ECEBCD4227DD73CA001F4796 /* BottomCardView.swift */,
+				EC35E1D927DEB0FC005AF018 /* NotificationView.swift */,
+				EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				EC39654127D9BD9B00CF1D1D /* Constants.swift in Sources */,
 				ECD2C95927D973400083612E /* MiniInstagramApp.swift in Sources */,
 				ECD3625127DB213A00C89A4D /* CommentViewModel.swift in Sources */,
+				EC35E1DA27DEB0FC005AF018 /* NotificationView.swift in Sources */,
 				ECD2C97B27D975E30083612E /* MainTabView.swift in Sources */,
 				EC39653827D9BB9D00CF1D1D /* LoginView.swift in Sources */,
 				ECD2C98527D9762C0083612E /* UploadPostView.swift in Sources */,
@@ -511,6 +518,7 @@
 				EC6B47AD27D9A769001B0BE0 /* UserStatView.swift in Sources */,
 				ECD3625927DB3B2000C89A4D /* NotificationCellViewModel.swift in Sources */,
 				EC6AE2B527D999BC00734783 /* UserCell.swift in Sources */,
+				EC35E1DC27DEB663005AF018 /* NotificationBannerViewModifier.swift in Sources */,
 				EC6AE2B127D9974600734783 /* SearchBar.swift in Sources */,
 				ECD2C98127D9761E0083612E /* NotificationsView.swift in Sources */,
 				ECD2C98727D978460083612E /* FeedCell.swift in Sources */,

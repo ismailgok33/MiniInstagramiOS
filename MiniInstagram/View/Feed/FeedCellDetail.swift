@@ -98,7 +98,7 @@ struct FeedCellDetail: View {
     func deleteComment(at offset: IndexSet) {
         let index = offset[offset.startIndex]
         let commentId = commentViewModel.comments[index].uid
-        commentViewModel.deleteComment(uid: commentId)
+        commentViewModel.deleteComment(commentId: commentId)
     }
     
 }
