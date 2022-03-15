@@ -20,12 +20,12 @@ struct UserStatView: View {
         if value == 0 {
             VStack {
                 Text("\(value)")
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.system(size: 30, weight: .bold))
                     .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                 
                 Text("\(title)")
                     .font(.system(size: 15))
-                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+                    .foregroundColor(.gray)
             } //: VStack
         }
         else {
@@ -34,14 +34,14 @@ struct UserStatView: View {
             } label: {
                 VStack {
                     Text("\(value)")
-                        .font(.system(size: 15, weight: .semibold))
+                        .font(.system(size: 30, weight: .bold))
                         .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                     
                     Text("\(title)")
                         .font(.system(size: 15))
-                        .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+                        .foregroundColor(.gray)
                 } //: VStack
-                .frame(width: 80, alignment: .center)
+//                .frame(width: 80, alignment: .center)
             }
 
         }
