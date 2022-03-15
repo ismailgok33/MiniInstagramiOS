@@ -13,13 +13,27 @@ struct NotificationsView: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 20) {
+            
+            Text("TODAY (\(viewModel.notifications.count))")
+                .font(.system(size: 16, weight: .semibold))
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            LazyVStack(spacing: 12) {
                 ForEach(viewModel.notifications) { notification in
-                    NotificationCell(notification: notification)
-                        .padding(.top)
+                    VStack {
+                        NotificationCell(notification: notification)
+                            .frame(height: 60)
+                            .background(Color.white.cornerRadius(12))
+                            .padding(.horizontal)
+                    }
+                    
                 }
             }
+            .padding(.top)
+            
         }
+        .background(Color(UIColor.systemGray6))
     }
 }
 

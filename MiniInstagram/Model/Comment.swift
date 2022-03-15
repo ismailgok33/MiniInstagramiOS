@@ -25,4 +25,8 @@ struct Comment: Identifiable, Decodable {
         formatter.unitsStyle = .abbreviated
         return formatter.string(from: timestamp.dateValue(), to: Date()) ?? ""
     }
+    
+    var isCommentOwner: Bool {
+        return uid == AuthViewModel.shared.userSession?.uid
+    }
 }

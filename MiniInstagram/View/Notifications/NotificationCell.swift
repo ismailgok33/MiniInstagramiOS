@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import Firebase
 
 struct NotificationCell: View {
     
@@ -34,12 +35,14 @@ struct NotificationCell: View {
                         .frame(width: 40, height: 40)
                         .clipShape(Circle())
                     
-                    Text(viewModel.notification.username)
-                        .font(.system(size: 14, weight: .semibold))
-                    + Text(viewModel.notification.type.notificationMessage)
-                        .font(.system(size: 15))
-                    + Text(" \(viewModel.timestampString)").foregroundColor(.gray)
-                        .font(.system(size: 12))
+                    VStack(alignment: .leading) {
+                        Text(viewModel.notification.username)
+                            .font(.system(size: 14, weight: .semibold))
+                        + Text(viewModel.notification.type.notificationMessage)
+                            .font(.system(size: 15))
+                        + Text(" \(viewModel.timestampString)").foregroundColor(.gray)
+                            .font(.system(size: 12))
+                    } //: VStack
                         
                 }
 
@@ -56,8 +59,8 @@ struct NotificationCell: View {
                         KFImage(URL(string: post.imageURL))
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 40, height: 40)
-                            .clipped()
+                            .frame(width: 55, height: 55)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
 
                 }
@@ -81,12 +84,13 @@ struct NotificationCell: View {
             }
             
         } //: HStack
-        .padding(.horizontal)
+        .padding(.horizontal, 4)
     }
 }
 
-//struct NotificationCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NotificationCell()
-//    }
-//}
+struct NotificationCell_Previews: PreviewProvider {
+    static var previews: some View {
+        NotificationCell(notification: Notification(username: "Tercih Kılavuuz", profileImageURL: "https://lh3.googleusercontent.com/a/AATXAJyBx5qeCx2Q7WSZFutnj29lUWaALbCkUwfOxUl2=s96-c", timestamp: Timestamp(date: Date()), type: .like, uid: "1DCYEY0y2WarZUKpOD4KLAXqStT2"))
+    }
+}
+

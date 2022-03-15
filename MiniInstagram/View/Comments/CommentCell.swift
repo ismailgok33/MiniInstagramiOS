@@ -13,7 +13,6 @@ import gRPC_Core
 struct CommentCell: View {
     
     let comment: Comment
-    @State var isCommentOwner = true
 //    @Binding var cardShown: Bool
 //    @Binding var cardDismissal: Bool
     @ObservedObject var viewModel: CommentViewModel
@@ -39,7 +38,7 @@ struct CommentCell: View {
             
             Spacer()
             
-            if isCommentOwner {
+            if comment.isCommentOwner {
                 Menu {
                     
                     Button {
