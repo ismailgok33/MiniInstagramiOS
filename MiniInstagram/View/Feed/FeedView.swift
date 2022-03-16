@@ -12,18 +12,26 @@ struct FeedView: View {
     @ObservedObject var viewModel = FeedViewModel()
     
     var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 32) {
-                ForEach(viewModel.posts) { post in
-//                    FeedCell(viewModel: FeedCellViewModel(post: post))
-                    FeedCell(post: post, deleteAction: deletePost)
+        
+        if viewModel.posts.isEmpty && !viewModel.noPosts {
+            LoadingView()
+        }
+        else {
+            ScrollView {
+                LazyVStack(spacing: 32) {
+                    ForEach(viewModel.posts) { post in
+    //                    FeedCell(viewModel: FeedCellViewModel(post: post))
+                        FeedCell(post: post, deleteAction: deletePost)
+                    }
                 }
+                .padding(.top)
             }
-            .padding(.top)
+            .onAppear {
+                viewModel.fetchPosts()
+            }
         }
-        .onAppear {
-            viewModel.fetchPosts()
-        }
+        
+        
     } //: body
         
     

@@ -43,6 +43,28 @@ struct ProfileHeaderView: View {
             }
             .frame(height: 100)
             
+            // Settings menu
+            if viewModel.user.isCurrentUser {
+                HStack {
+                    
+                    Spacer()
+                    
+                    Button {
+                        
+                    } label: {
+                        Image("profile_settings_icon")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.white)
+                            
+                    }
+
+                }
+                .padding(.horizontal)
+                .offset(y: -50)
+                
+            }
             
             // Profile Image
             HStack {
@@ -63,7 +85,7 @@ struct ProfileHeaderView: View {
                 KFImage(URL(string: viewModel.user.profileImageURL))
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 80, height: 80)
+                    .frame(width: 100, height: 100)
                     .clipShape(Circle())
                     .padding(4)
                     .background(colorScheme == .dark ? Color.black : Color.white)
@@ -85,12 +107,12 @@ struct ProfileHeaderView: View {
             } //: HStack
             .frame(height: 150)
             .background(Color.white.cornerRadius(20))
-//            .padding(.top, -50)
-            .offset(y: -50)
+            .padding(.top)
+            .offset(y: -40)
             
-            VStack {
+            VStack(spacing: 5) {
                 Text(viewModel.user.fullname)
-                    .font(.system(size: 30, weight: .bold))
+                    .font(.system(size: 22, weight: .bold))
                     
                 
                 if let bio = viewModel.user.bio {
@@ -99,7 +121,7 @@ struct ProfileHeaderView: View {
                         .foregroundColor(.gray)
                 }
                 
-                HStack(spacing: 20) {
+                HStack(spacing: 5) {
                     
                     Image("location_logo")
                         .resizable()
@@ -107,6 +129,9 @@ struct ProfileHeaderView: View {
                         .frame(width: 20, height: 20)
                     
                     Text("Grenoble")
+//                        .font(.system(size: 16, weight: .semibold))
+                        .font(.caption)
+                        .foregroundColor(.gray)
                     
                 } //: HStack - location
                 
@@ -123,8 +148,6 @@ struct ProfileHeaderView: View {
                 
             } //: VStack inner
             .padding(.top, -120)
-            
-           
             
             
         } //: VStack

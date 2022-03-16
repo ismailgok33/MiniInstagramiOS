@@ -18,13 +18,19 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 32) {
-                ProfileHeaderView(viewModel: viewModel)
-                
-                PostGridView(config: .profile(user.id ?? ""))
-            } //: VStack
-            .padding(.top)
+        if viewModel == nil {
+            
+        }
+        else {
+            ScrollView {
+                VStack(spacing: 32) {
+                    ProfileHeaderView(viewModel: viewModel)
+                    
+                    PostGridView(config: .profile(user.id ?? ""))
+                } //: VStack
+                .padding(.top)
+            }
+            .background(Color("background_color")).ignoresSafeArea()
         }
     }
 }

@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileActionButtonView: View {
     
     @ObservedObject var viewModel: ProfileViewModel
+    @Environment(\.colorScheme) var colorScheme
     @State var showEditProfile = false
     
     var isFollowed: Bool {
@@ -25,11 +27,19 @@ struct ProfileActionButtonView: View {
                 Text("Edit Profile")
                     .font(.system(size: 15, weight: .semibold))
                     .frame(width: 360, height: 32)
-                    .foregroundColor(.black)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 3)
-                            .stroke(Color.gray, lineWidth: 1)
+                    .foregroundColor(colorScheme == .dark ? .gray : .black)
+//                    .padding(.vertical, 12)
+//                    .padding(.horizontal, 40)
+                    .background(
+                        colorScheme == .dark ? Color.black : Color.white
+                        
                     )
+                    .clipShape(Capsule())
+//                    .foregroundColor(.black)
+//                    .overlay(
+//                        RoundedRectangle(cornerRadius: 3)
+//                            .stroke(Color.gray, lineWidth: 1)
+//                    )
             }.sheet(isPresented: $showEditProfile) {
                 
             } content: {
@@ -38,35 +48,19 @@ struct ProfileActionButtonView: View {
 
         }
         else {
-            // follow and message button
+            // follow button
             HStack {
                 Button {
                     isFollowed ? viewModel.unfollow() : viewModel.follow()
                 } label: {
                     Text(isFollowed ? "Following" : "Follow")
                         .font(.system(size: 15, weight: .semibold))
-                        .frame(width: 172, height: 32)
+                        .frame(width: 360, height: 32)
                         .foregroundColor(isFollowed ? .black : .white)
-                        .background(isFollowed ? Color.white : Color.blue)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 3)
-                                .stroke(Color.gray, lineWidth: isFollowed ? 1 : 0)
-                        )
+                        .background(isFollowed ? Color.gray : Color("button_bg_blue"))
+                        .clipShape(Capsule())
                 }
                 .cornerRadius(3)
-                
-                Button {
-                    
-                } label: {
-                    Text("Message")
-                        .font(.system(size: 15, weight: .semibold))
-                        .frame(width: 173, height: 32)
-                        .foregroundColor(.black)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 3)
-                                .stroke(Color.gray, lineWidth: 1)
-                        )
-                }
             } //: HStack
         }
     }

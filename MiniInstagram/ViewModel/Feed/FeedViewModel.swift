@@ -10,6 +10,7 @@ import SwiftUI
 class FeedViewModel: ObservableObject {
     
     @Published var posts = [Post]()
+    @Published var noPosts = false
     
     init() {
         fetchPosts()
@@ -18,7 +19,10 @@ class FeedViewModel: ObservableObject {
     // change it to fetch only followed user's posts
     func fetchPosts() {
         COLLECTION_POSTS.order(by: "timestamp", descending: true).getDocuments { snapshot, _ in
-            guard let document = snapshot?.documents else { return }
+            guard let document = snapshot?.documents else {
+                self.noPosts = true
+                return
+            }
             self.posts = document.compactMap({ try? $0.data(as: Post.self) })
             
             snapshot?.documentChanges.forEach({ doc in

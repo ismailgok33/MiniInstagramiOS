@@ -44,9 +44,9 @@ struct FeedCell: View {
         VStack(alignment: .leading) {
             
             // notification view
-            NotificationView()
-                .offset(y: self.showNotification ? -UIScreen.main.bounds.height / 6 : -UIScreen.main.bounds.height)
-                .animation(.interpolatingSpring(mass: 1.0, stiffness: 100.0, damping: 10, initialVelocity: 0))
+//            NotificationView()
+//                .offset(y: self.showNotification ? -UIScreen.main.bounds.height / 6 : -UIScreen.main.bounds.height)
+//                .animation(.interpolatingSpring(mass: 1.0, stiffness: 100.0, damping: 10, initialVelocity: 0))
 //            
 //            EmptyView()
 //                .banner(isPresented: $showNotification) {
