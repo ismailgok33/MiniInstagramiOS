@@ -26,14 +26,11 @@ struct ProfileActionButtonView: View {
             } label: {
                 Text("Edit Profile")
                     .font(.system(size: 15, weight: .semibold))
-                    .frame(width: 360, height: 32)
-                    .foregroundColor(colorScheme == .dark ? .gray : .black)
+                    .frame(width: getRect().width / 2, height: 50)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
 //                    .padding(.vertical, 12)
 //                    .padding(.horizontal, 40)
-                    .background(
-                        colorScheme == .dark ? Color.black : Color.white
-                        
-                    )
+                    .background( Color("text_gray") )
                     .clipShape(Capsule())
 //                    .foregroundColor(.black)
 //                    .overlay(
@@ -55,9 +52,9 @@ struct ProfileActionButtonView: View {
                 } label: {
                     Text(isFollowed ? "Following" : "Follow")
                         .font(.system(size: 15, weight: .semibold))
-                        .frame(width: 360, height: 32)
+                        .frame(width: getRect().width / 2, height: 50)
                         .foregroundColor(isFollowed ? .black : .white)
-                        .background(isFollowed ? Color.gray : Color("button_bg_blue"))
+                        .background(isFollowed ? Color("text_gray") : Color("button_bg_blue"))
                         .clipShape(Capsule())
                 }
                 .cornerRadius(3)

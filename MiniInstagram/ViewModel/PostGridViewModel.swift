@@ -14,6 +14,7 @@ enum PostGridConfiguration {
 
 class PostGridViewModel: ObservableObject {
     @Published var posts = [Post]()
+    @Published var noPosts = false
     let config: PostGridConfiguration
     
     init(config: PostGridConfiguration) {
@@ -32,14 +33,20 @@ class PostGridViewModel: ObservableObject {
     
     func fetchExplorePagePosts() {
         COLLECTION_POSTS.order(by: "likes", descending: true).getDocuments { snapshot, _ in
-            guard let document = snapshot?.documents else { return }
+            guard let document = snapshot?.documents else {
+                self.noPosts = true
+                return
+            }
             self.posts = document.compactMap({ try? $0.data(as: Post.self) })
         }
     }
     
     func fetchUserPosts(forUid uid: String) {
         COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid).getDocuments { snapshot, _ in
-            guard let document = snapshot?.documents else { return }
+            guard let document = snapshot?.documents else {
+                self.noPosts = true
+                return
+            }
             let posts = document.compactMap({ try? $0.data(as: Post.self) })
             self.posts = posts.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }) // sort for new post is top
         }

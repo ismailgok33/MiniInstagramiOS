@@ -22,21 +22,35 @@ struct PostGridView: View {
     }
     
     var body: some View {
-        LazyVGrid(columns: items, spacing: 2) {
-            ForEach(viewModel.posts) { post in
-                NavigationLink {
-//                    FeedCell(viewModel: FeedCellViewModel(post: post))
-                    FeedCell(post: post, deleteAction: nil)
-                } label: {
-                    KFImage(URL(string: post.imageURL))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: width, height: width)
-                        .clipped()
-                }
+        
+        if viewModel.posts.isEmpty && !viewModel.noPosts {
+            VStack {
+                Spacer()
+                LoadingView()
+                Spacer()
+            }
+            .frame(width: getRect().width)
+//            .ignoresSafeArea()
+        }
+        else {
+            LazyVGrid(columns: items, spacing: 2) {
+                ForEach(viewModel.posts) { post in
+                    NavigationLink {
+    //                    FeedCell(viewModel: FeedCellViewModel(post: post))
+                        FeedCell(post: post, deleteAction: nil)
+                    } label: {
+                        KFImage(URL(string: post.imageURL))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: width, height: width)
+                            .clipped()
+                    }
 
+                }
             }
         }
+        
+       
     }
 }
 

@@ -11,12 +11,12 @@ struct LoadingView: View {
     var body: some View {
         ZStack {
             Color(.systemBackground)
-                .ignoresSafeArea()
+//                .ignoresSafeArea()
                 .opacity(0.8)
             
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
-                .scaleEffect(3)
+                .scaleEffect(2)
         }
     }
 }

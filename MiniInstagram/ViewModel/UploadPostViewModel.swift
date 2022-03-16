@@ -9,9 +9,12 @@ import SwiftUI
 import Firebase
 
 class UploadPostViewModel: ObservableObject {
+    @Published var isUploading = false
     
     func uploadPost(caption: String, image: UIImage, completion: FirestoreCompletion) {
         guard let user = AuthViewModel.shared.currentUser else { return }
+        
+        isUploading = true
         
         ImageUploader.uploadImage(image: image, type: .post) { imageURL in
             let data = ["caption": caption,
@@ -23,6 +26,7 @@ class UploadPostViewModel: ObservableObject {
                         "ownerUsername": user.username] as [String:Any]
             
             COLLECTION_POSTS.addDocument(data: data, completion: completion)
+            self.isUploading = false
         }
     }
     

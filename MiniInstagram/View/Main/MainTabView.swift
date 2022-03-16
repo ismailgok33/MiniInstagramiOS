@@ -12,6 +12,12 @@ struct MainTabView: View {
     let user: User
     @Binding var selectedIndex: Int
     
+    init(user: User, selectedIndex: Binding<Int>) {
+        self.user = user
+        self._selectedIndex = selectedIndex
+        UITabBar.appearance().backgroundColor = UIColor(named: "tabbar_bg")
+     }
+    
     var body: some View {
         NavigationView {
             TabView(selection: $selectedIndex) {

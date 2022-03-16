@@ -9,6 +9,7 @@ import SwiftUI
 
 class ProfileViewModel: ObservableObject {
     @Published var user: User
+    @Published var fetchingStats = false
     
     init(user: User) {
         self.user = user
@@ -43,6 +44,8 @@ class ProfileViewModel: ObservableObject {
     
     func fetchUserStats() {
         guard let uid = user.id else { return }
+        
+        fetchingStats = true
 
         COLLECTION_FOLLOWING.document(uid).collection("user-following").getDocuments { snapshot, _ in
             guard let followings = snapshot?.documents.count else { return }
@@ -54,6 +57,8 @@ class ProfileViewModel: ObservableObject {
                     guard let posts = snapshot?.documents.count else { return }
                     
                     self.user.stats = UserStats(followings: followings, posts: posts, followers: followers)
+                    
+                    self.fetchingStats = false
                 }
             }
         }

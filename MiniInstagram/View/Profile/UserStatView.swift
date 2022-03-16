@@ -21,11 +21,11 @@ struct UserStatView: View {
             VStack {
                 Text("\(value)")
                     .font(.system(size: 30, weight: .bold))
-                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+                    .foregroundColor(Color("text_header"))
                 
                 Text("\(title)")
                     .font(.system(size: 15))
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color("text_gray"))
             } //: VStack
         }
         else {
@@ -35,11 +35,11 @@ struct UserStatView: View {
                 VStack {
                     Text("\(value)")
                         .font(.system(size: 30, weight: .bold))
-                        .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+                        .foregroundColor(Color("text_header"))
                     
                     Text("\(title)")
                         .font(.system(size: 15))
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color("text_gray"))
                 } //: VStack
 //                .frame(width: 80, alignment: .center)
             }

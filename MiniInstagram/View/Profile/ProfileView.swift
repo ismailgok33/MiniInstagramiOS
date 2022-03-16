@@ -18,8 +18,8 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        if viewModel == nil {
-            
+        if viewModel.fetchingStats {
+            LoadingView()
         }
         else {
             ScrollView {
@@ -30,7 +30,7 @@ struct ProfileView: View {
                 } //: VStack
                 .padding(.top)
             }
-            .background(Color("background_color")).ignoresSafeArea()
+            .background(Color("background_color"))
         }
     }
 }

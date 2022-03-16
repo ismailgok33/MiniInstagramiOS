@@ -56,7 +56,7 @@ struct ProfileHeaderView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 30, height: 30)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("text_header"))
                             
                     }
 
@@ -88,7 +88,8 @@ struct ProfileHeaderView: View {
                     .frame(width: 100, height: 100)
                     .clipShape(Circle())
                     .padding(4)
-                    .background(colorScheme == .dark ? Color.black : Color.white)
+//                    .background(colorScheme == .dark ? Color.black : Color.white)
+                    .background(Color("background_color"))
                     .clipShape(Circle())
                     .offset(y: -70)
                 
@@ -106,7 +107,8 @@ struct ProfileHeaderView: View {
                 
             } //: HStack
             .frame(height: 150)
-            .background(Color.white.cornerRadius(20))
+//            .background(Color.white.cornerRadius(20))
+            .background(Color("background_color").cornerRadius(20))
             .padding(.top)
             .offset(y: -40)
             
@@ -118,7 +120,7 @@ struct ProfileHeaderView: View {
                 if let bio = viewModel.user.bio {
                     Text(bio)
                         .font(.system(size: 15))
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color("text_gray"))
                 }
                 
                 HStack(spacing: 5) {
@@ -131,7 +133,7 @@ struct ProfileHeaderView: View {
                     Text("Grenoble")
 //                        .font(.system(size: 16, weight: .semibold))
                         .font(.caption)
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color("text_gray"))
                     
                 } //: HStack - location
                 
