@@ -73,6 +73,7 @@
 		ECD3625727DB32AF00C89A4D /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625627DB32AF00C89A4D /* NotificationsViewModel.swift */; };
 		ECD3625927DB3B2000C89A4D /* NotificationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625827DB3B2000C89A4D /* NotificationCellViewModel.swift */; };
 		ECDEE24E27E15D95003A497B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE24D27E15D94003A497B /* LoadingView.swift */; };
+		ECDEE25027E2F92F003A497B /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE24F27E2F92F003A497B /* BackButtonView.swift */; };
 		ECEBCD4327DD73CA001F4796 /* BottomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEBCD4227DD73CA001F4796 /* BottomCardView.swift */; };
 		ECEBCD4527DD9560001F4796 /* DeleteModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEBCD4427DD9560001F4796 /* DeleteModifier.swift */; };
 /* End PBXBuildFile section */
@@ -136,6 +137,7 @@
 		ECD3625627DB32AF00C89A4D /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		ECD3625827DB3B2000C89A4D /* NotificationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellViewModel.swift; sourceTree = "<group>"; };
 		ECDEE24D27E15D94003A497B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		ECDEE24F27E2F92F003A497B /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		ECEBCD4227DD73CA001F4796 /* BottomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardView.swift; sourceTree = "<group>"; };
 		ECEBCD4427DD9560001F4796 /* DeleteModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -356,6 +358,7 @@
 				EC35E1D927DEB0FC005AF018 /* NotificationView.swift */,
 				EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */,
 				ECDEE24D27E15D94003A497B /* LoadingView.swift */,
+				ECDEE24F27E2F92F003A497B /* BackButtonView.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				ECD2C96D27D973FC0083612E /* ContentView.swift in Sources */,
 				EC39654727D9D9E200CF1D1D /* User.swift in Sources */,
 				EC39654127D9BD9B00CF1D1D /* Constants.swift in Sources */,
+				ECDEE25027E2F92F003A497B /* BackButtonView.swift in Sources */,
 				ECD2C95927D973400083612E /* MiniInstagramApp.swift in Sources */,
 				ECD3625127DB213A00C89A4D /* CommentViewModel.swift in Sources */,
 				EC35E1DA27DEB0FC005AF018 /* NotificationView.swift in Sources */,

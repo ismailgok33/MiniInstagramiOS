@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "message_icon.png",
+      "filename" : "message_icon.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "message_icon-1.png",
+      "filename" : "message_icon-1.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,7 +23,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "message_icon-2.png",
+      "filename" : "message_icon-2.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },

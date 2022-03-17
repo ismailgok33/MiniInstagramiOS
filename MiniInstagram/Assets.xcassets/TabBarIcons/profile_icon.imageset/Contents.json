@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "profile_icon.png",
+      "filename" : "profile_icon.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "profile_icon-1.png",
+      "filename" : "profile_icon-1.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,7 +23,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "profile_icon-2.png",
+      "filename" : "profile_icon-2.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },

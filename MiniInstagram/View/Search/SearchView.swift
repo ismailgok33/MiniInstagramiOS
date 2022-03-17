@@ -29,6 +29,12 @@ struct SearchView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackButtonView()
+            }
+        }
         
     }
 }

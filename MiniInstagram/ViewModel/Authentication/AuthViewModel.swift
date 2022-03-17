@@ -58,7 +58,7 @@ class AuthViewModel: ObservableObject {
 //                self.userSession = user
 //                self.fetchUser()
                                 
-                COLLECTION_USERS.document(user.uid).setData(data) { _ in
+                COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { _ in
                     print("DEBUG: Successfully uploaded user data..")
                     self.userSession = user
                     self.fetchUser()

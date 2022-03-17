@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "search_icon.pdf",
+      "filename" : "back_icon-2.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "search_icon-1.pdf",
+      "filename" : "back_icon-1.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,7 +23,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "search_icon-2.pdf",
+      "filename" : "back_icon.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },

@@ -43,6 +43,7 @@ struct MainTabView: View {
                     }
                     .tabItem({
                         Image("post_icon")
+                            .frame(width: 40, height: 40)
                     }).tag(2)
                 
                 NotificationsView()
@@ -86,9 +87,9 @@ struct MainTabView: View {
     var tabTitle: String {
         switch selectedIndex {
         case 0: return "Feed"
-        case 1: return "Explore"
+        case 1: return "Search"
         case 2: return "New Post"
-        case 3: return "Notifications"
+        case 3: return "Activities"
         case 4: return "Profile"
         default: return ""
         }

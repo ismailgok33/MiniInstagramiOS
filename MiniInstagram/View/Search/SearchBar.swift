@@ -17,12 +17,13 @@ struct SearchBar: View {
             TextField("Search...", text: $text)
                 .padding(8)
                 .padding(.horizontal, 24)
-                .background(Color(.systemGray6))
+                .foregroundColor(Color("text_gray"))
+                .background(Color("searchbox_bg_colort"))
                 .cornerRadius(8)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color("text_gray"))
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 8)
                     }
@@ -38,7 +39,7 @@ struct SearchBar: View {
                     UIApplication.shared.endEditing()
                 } label: {
                     Text("Cancel")
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("text_header"))
                 }
                 .padding(.trailing, 8)
                 .transition(.move(edge: .trailing))

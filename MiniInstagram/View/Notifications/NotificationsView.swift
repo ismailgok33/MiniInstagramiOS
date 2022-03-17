@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NotificationsView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel = NotificationsViewModel()
     
     var body: some View {
@@ -24,18 +26,32 @@ struct NotificationsView: View {
                     VStack {
                         NotificationCell(notification: notification)
                             .frame(height: 60)
-                            .background(Color.white.cornerRadius(12))
+                            .background(Color("tabbar_bg").cornerRadius(12))
                             .padding(.horizontal)
                     }
-                    
                 }
             }
             .padding(.top)
             
         }
-        .background(Color(UIColor.systemGray6))
+        .background(colorScheme == .dark ? Color("background_color") : Color("activity_bg_color"))
+        .navigationBarHidden(false)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackButtonView()
+                    }
+            ToolbarItem(placement: .navigation) {
+                Text("Activity")
+                    .font(.title3)
+                    .foregroundColor(Color("text_header"))
+            }
+                }
+//        .navigationBarItems(leading: btnBack)
     }
 }
+
+
 
 struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {

@@ -156,6 +156,12 @@ struct ProfileHeaderView: View {
         .ignoresSafeArea(.all, edges: .top)
 //        .background(Color(UIColor.systemGray6))
         .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackButtonView(inProfileView: true)
+            }
+        }
     }
 }
 

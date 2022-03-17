@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "activity_icon.png",
+      "filename" : "activity_icon.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "activity_icon-1.png",
+      "filename" : "activity_icon-1.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,7 +23,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "activity_icon-2.png",
+      "filename" : "activity_icon-2.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },

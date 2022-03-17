@@ -39,7 +39,7 @@ class CommentViewModel: ObservableObject {
     }
     
     func deleteComment(commentId: String) {
-        guard let user = AuthViewModel.shared.currentUser else { return }
+        guard let _ = AuthViewModel.shared.currentUser else { return }
         
         // if the user is not the comment owner, don't delete
 //        guard user.id == uid else { return }

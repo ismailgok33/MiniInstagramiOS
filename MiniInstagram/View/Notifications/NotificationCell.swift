@@ -85,6 +85,7 @@ struct NotificationCell: View {
             
         } //: HStack
         .padding(.horizontal, 4)
+        
     }
 }
 

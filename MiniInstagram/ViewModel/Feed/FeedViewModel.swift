@@ -38,7 +38,7 @@ class FeedViewModel: ObservableObject {
     }
     
     func deletePost(postId: String) {
-        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        guard let _ = AuthViewModel.shared.userSession?.uid else { return }
 //        let postId = uid else { return }
 //        guard uid == post.ownerUid else { return }
         

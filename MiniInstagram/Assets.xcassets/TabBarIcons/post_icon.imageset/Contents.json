@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "post_icon.png",
+      "filename" : "post_icon.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "post_icon-1.png",
+      "filename" : "post_icon-1.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,7 +23,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "post_icon-2.png",
+      "filename" : "post_icon-2.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },

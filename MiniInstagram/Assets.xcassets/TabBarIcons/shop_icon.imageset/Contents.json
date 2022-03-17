@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "shop_icon.png",
+      "filename" : "shop_icon.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "shop_icon-1.png",
+      "filename" : "shop_icon-1.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,7 +23,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "shop_icon-2.png",
+      "filename" : "shop_icon-2.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
