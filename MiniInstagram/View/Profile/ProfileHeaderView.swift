@@ -14,6 +14,7 @@ struct ProfileHeaderView: View {
     @ObservedObject var viewModel: ProfileViewModel
     @Environment(\.colorScheme) var colorScheme
     @State var offset: CGFloat = 0
+    @State var showSettings = false
     
     var body: some View {
         VStack(alignment: .center) {
@@ -50,7 +51,7 @@ struct ProfileHeaderView: View {
                     Spacer()
                     
                     Button {
-                        
+                        showSettings.toggle()
                     } label: {
                         Image("profile_settings_icon")
                             .resizable()
@@ -63,6 +64,11 @@ struct ProfileHeaderView: View {
                 }
                 .padding(.horizontal)
                 .offset(y: -50)
+                .sheet(isPresented: $showSettings) {
+                    
+                } content: {
+                    SettingsView()
+                }
                 
             }
             

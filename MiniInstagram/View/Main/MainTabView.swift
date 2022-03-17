@@ -29,7 +29,7 @@ struct MainTabView: View {
                         Image("feed_icon")
                     }).tag(0)
                 
-                SearchView()
+                ReelsView()
                     .onTapGesture {
                         selectedIndex = 1
                     }
@@ -46,7 +46,7 @@ struct MainTabView: View {
                             .frame(width: 40, height: 40)
                     }).tag(2)
                 
-                NotificationsView()
+                ShopView()
                     .onTapGesture {
                         selectedIndex = 3
                     }

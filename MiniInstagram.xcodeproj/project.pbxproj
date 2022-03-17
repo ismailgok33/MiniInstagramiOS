@@ -74,6 +74,11 @@
 		ECD3625927DB3B2000C89A4D /* NotificationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD3625827DB3B2000C89A4D /* NotificationCellViewModel.swift */; };
 		ECDEE24E27E15D95003A497B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE24D27E15D94003A497B /* LoadingView.swift */; };
 		ECDEE25027E2F92F003A497B /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE24F27E2F92F003A497B /* BackButtonView.swift */; };
+		ECDEE25227E3045D003A497B /* FollowNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE25127E3045D003A497B /* FollowNotificationCell.swift */; };
+		ECDEE25427E30B8F003A497B /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE25327E30B8F003A497B /* ShopView.swift */; };
+		ECDEE25727E30EA5003A497B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE25627E30EA5003A497B /* SettingsView.swift */; };
+		ECDEE25927E313E3003A497B /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE25827E313E3003A497B /* NavigationBarModifier.swift */; };
+		ECDEE25D27E316FF003A497B /* ReelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE25C27E316FF003A497B /* ReelsView.swift */; };
 		ECEBCD4327DD73CA001F4796 /* BottomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEBCD4227DD73CA001F4796 /* BottomCardView.swift */; };
 		ECEBCD4527DD9560001F4796 /* DeleteModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEBCD4427DD9560001F4796 /* DeleteModifier.swift */; };
 /* End PBXBuildFile section */
@@ -138,6 +143,11 @@
 		ECD3625827DB3B2000C89A4D /* NotificationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellViewModel.swift; sourceTree = "<group>"; };
 		ECDEE24D27E15D94003A497B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		ECDEE24F27E2F92F003A497B /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
+		ECDEE25127E3045D003A497B /* FollowNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowNotificationCell.swift; sourceTree = "<group>"; };
+		ECDEE25327E30B8F003A497B /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		ECDEE25627E30EA5003A497B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		ECDEE25827E313E3003A497B /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		ECDEE25C27E316FF003A497B /* ReelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsView.swift; sourceTree = "<group>"; };
 		ECEBCD4227DD73CA001F4796 /* BottomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardView.swift; sourceTree = "<group>"; };
 		ECEBCD4427DD9560001F4796 /* DeleteModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,6 +267,7 @@
 		ECD2C96A27D973900083612E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ECDEE25527E30E9B003A497B /* Settings */,
 				ECD2C97527D9745A0083612E /* Items */,
 				ECD2C97427D9744B0083612E /* Authentication */,
 				ECD2C97327D974440083612E /* Notifications */,
@@ -266,6 +277,8 @@
 				ECD2C96F27D9742A0083612E /* Profile */,
 				ECD2C96E27D974260083612E /* UploadPost */,
 				ECD2C96B27D973F00083612E /* Main */,
+				ECDEE25327E30B8F003A497B /* ShopView.swift */,
+				ECDEE25C27E316FF003A497B /* ReelsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,6 +345,7 @@
 			children = (
 				ECD2C98027D9761E0083612E /* NotificationsView.swift */,
 				EC6AE2BA27D9A11A00734783 /* NotificationCell.swift */,
+				ECDEE25127E3045D003A497B /* FollowNotificationCell.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -359,6 +373,7 @@
 				EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */,
 				ECDEE24D27E15D94003A497B /* LoadingView.swift */,
 				ECDEE24F27E2F92F003A497B /* BackButtonView.swift */,
+				ECDEE25827E313E3003A497B /* NavigationBarModifier.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -396,6 +411,14 @@
 				ECB981BB27DC211A0077BCB7 /* EditProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		ECDEE25527E30E9B003A497B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ECDEE25627E30EA5003A497B /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,6 +516,7 @@
 				EC39653927D9BB9D00CF1D1D /* RegistrationView.swift in Sources */,
 				ECD2C97D27D975F80083612E /* FeedView.swift in Sources */,
 				ECD3625727DB32AF00C89A4D /* NotificationsViewModel.swift in Sources */,
+				ECDEE25D27E316FF003A497B /* ReelsView.swift in Sources */,
 				EC39653727D9BB9D00CF1D1D /* ResetPasswordView.swift in Sources */,
 				ECB981C627DC744A0077BCB7 /* EmailLoginView.swift in Sources */,
 				EC6AE2B327D9987C00734783 /* PostGridView.swift in Sources */,
@@ -508,6 +532,7 @@
 				ECD2C97B27D975E30083612E /* MainTabView.swift in Sources */,
 				EC39653827D9BB9D00CF1D1D /* LoginView.swift in Sources */,
 				ECD2C98527D9762C0083612E /* UploadPostView.swift in Sources */,
+				ECDEE25227E3045D003A497B /* FollowNotificationCell.swift in Sources */,
 				ECEBCD4327DD73CA001F4796 /* BottomCardView.swift in Sources */,
 				ECB981BA27DC0B670077BCB7 /* EditProfileView.swift in Sources */,
 				ECB981CB27DC835C0077BCB7 /* FeedCellDetail.swift in Sources */,
@@ -521,11 +546,13 @@
 				ECEBCD4527DD9560001F4796 /* DeleteModifier.swift in Sources */,
 				EC39654327D9BD9B00CF1D1D /* TextArea.swift in Sources */,
 				ECD3624327DAFDEA00C89A4D /* Post.swift in Sources */,
+				ECDEE25427E30B8F003A497B /* ShopView.swift in Sources */,
 				ECD2C98327D976250083612E /* ProfileView.swift in Sources */,
 				ECD3624D27DB210C00C89A4D /* CommentsView.swift in Sources */,
 				EC6B47AD27D9A769001B0BE0 /* UserStatView.swift in Sources */,
 				ECD3625927DB3B2000C89A4D /* NotificationCellViewModel.swift in Sources */,
 				EC6AE2B527D999BC00734783 /* UserCell.swift in Sources */,
+				ECDEE25727E30EA5003A497B /* SettingsView.swift in Sources */,
 				EC35E1DC27DEB663005AF018 /* NotificationBannerViewModifier.swift in Sources */,
 				EC6AE2B127D9974600734783 /* SearchBar.swift in Sources */,
 				ECD2C98127D9761E0083612E /* NotificationsView.swift in Sources */,
@@ -533,6 +560,7 @@
 				ECD3624527DAFED900C89A4D /* FeedViewModel.swift in Sources */,
 				ECD3624927DB103900C89A4D /* FeedCellViewModel.swift in Sources */,
 				EC6B47AF27D9A86A001B0BE0 /* ProfileActionButtonView.swift in Sources */,
+				ECDEE25927E313E3003A497B /* NavigationBarModifier.swift in Sources */,
 				ECD3623B27DA64D000C89A4D /* SearchViewModel.swift in Sources */,
 				ECD3624127DAEA7E00C89A4D /* UploadPostViewModel.swift in Sources */,
 				EC39653F27D9BD9B00CF1D1D /* CustomTextField.swift in Sources */,

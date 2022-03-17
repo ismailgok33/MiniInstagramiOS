@@ -27,4 +27,8 @@ extension View {
         
         return root
     }
+    
+    func navigationBarColor(_ backgroundColor: UIColor?) -> some View {
+            self.modifier(NavigationBarModifier(backgroundColor: backgroundColor))
+        }
 }

@@ -14,41 +14,59 @@ struct NotificationsView: View {
     @ObservedObject var viewModel = NotificationsViewModel()
     
     var body: some View {
-        ScrollView {
+        
+        VStack {
+            // Follow notifications scroll view
+            ScrollView(.horizontal) {
+                LazyVStack(spacing: 12) {
+                    ForEach(viewModel.notifications.filter({ $0.type == .follow })) { notification in
+                        VStack {
+                            FollowNotificationCell(notification: notification)
+                                .padding(.horizontal)
+                        } //: VStack
+                    } //: ForEach
+                } //: LazyVStack
+            } //: ScrollView - follow
             
-            Text("TODAY (\(viewModel.notifications.count))")
-                .font(.system(size: 16, weight: .semibold))
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            LazyVStack(spacing: 12) {
-                ForEach(viewModel.notifications) { notification in
-                    VStack {
-                        NotificationCell(notification: notification)
-                            .frame(height: 60)
-                            .background(Color("tabbar_bg").cornerRadius(12))
-                            .padding(.horizontal)
+            // Like and post notifications scroll view
+            ScrollView {
+                
+                Text("TODAY (\(viewModel.notifications.filter({ $0.type != .follow }).count))")
+                    .font(.system(size: 16, weight: .semibold))
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                LazyVStack(spacing: 12) {
+                    ForEach(viewModel.notifications.filter({ $0.type != .follow })) { notification in
+                        VStack {
+                            NotificationCell(notification: notification)
+                                .frame(height: 60)
+                                .background(Color("tabbar_bg").cornerRadius(12))
+                                .padding(.horizontal)
+                        }
                     }
                 }
-            }
-            .padding(.top)
+                .padding(.top)
+                
+            } //: ScrollView - like and posts
             
-        }
+        } //: VStack
         .background(colorScheme == .dark ? Color("background_color") : Color("activity_bg_color"))
         .navigationBarHidden(false)
         .navigationBarBackButtonHidden(true)
+        .navigationBarColor(colorScheme == .dark ? UIColor(named: "background_color") : UIColor(named: "activity_bg_color"))
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 BackButtonView()
-                    }
+            }
             ToolbarItem(placement: .navigation) {
                 Text("Activity")
                     .font(.title3)
                     .foregroundColor(Color("text_header"))
             }
-                }
-//        .navigationBarItems(leading: btnBack)
-    }
+        } //: toolbar
+        
+    } //: body
 }
 
 
