@@ -26,7 +26,7 @@ struct MainTabView: View {
                         selectedIndex = 0
                     }
                     .tabItem({
-                        Image(systemName: "house")
+                        Image("feed_icon")
                     }).tag(0)
                 
                 SearchView()
@@ -34,7 +34,7 @@ struct MainTabView: View {
                         selectedIndex = 1
                     }
                     .tabItem({
-                        Image(systemName: "magnifyingglass")
+                        Image("reels_icon")
                     }).tag(1)
                 
                 UploadPostView(tabIndex: $selectedIndex)
@@ -42,7 +42,7 @@ struct MainTabView: View {
                         selectedIndex = 2
                     }
                     .tabItem({
-                        Image(systemName: "plus.square")
+                        Image("post_icon")
                     }).tag(2)
                 
                 NotificationsView()
@@ -50,7 +50,7 @@ struct MainTabView: View {
                         selectedIndex = 3
                     }
                     .tabItem({
-                        Image(systemName: "heart")
+                        Image("shop_icon")
                     }).tag(3)
                 
                 ProfileView(user: user)
@@ -58,7 +58,7 @@ struct MainTabView: View {
                         selectedIndex = 4
                     }
                     .tabItem({
-                        Image(systemName: "person")
+                        Image("profile_icon")
                     }).tag(4)
             }
     //        .tint(.black)
