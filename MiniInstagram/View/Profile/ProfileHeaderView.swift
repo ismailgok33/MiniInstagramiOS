@@ -45,32 +45,35 @@ struct ProfileHeaderView: View {
             .frame(height: 100)
             
             // Settings menu
-            if viewModel.user.isCurrentUser {
+            
                 HStack {
+                    
+                    BackButtonView(inProfileView: true)
+                        .padding()
                     
                     Spacer()
                     
-                    Button {
-                        showSettings.toggle()
-                    } label: {
-                        Image("profile_settings_icon")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(Color("text_header"))
-                            
+                    if viewModel.user.isCurrentUser  {
+                        Button {
+                            showSettings.toggle()
+                        } label: {
+                            Image("profile_settings_icon")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(Color("text_header"))
+                                
+                        }
                     }
 
-                }
+                } //: HStack
                 .padding(.horizontal)
-                .offset(y: -50)
+                .offset(y: -100)
                 .sheet(isPresented: $showSettings) {
                     
                 } content: {
                     SettingsView()
                 }
-                
-            }
             
             // Profile Image
             HStack {
@@ -163,11 +166,11 @@ struct ProfileHeaderView: View {
 //        .background(Color(UIColor.systemGray6))
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                BackButtonView(inProfileView: true)
-            }
-        }
+//        .toolbar {
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                BackButtonView(inProfileView: true)
+//            }
+//        }
     }
 }
 

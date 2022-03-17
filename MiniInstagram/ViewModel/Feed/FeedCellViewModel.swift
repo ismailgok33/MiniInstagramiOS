@@ -27,6 +27,7 @@ class FeedCellViewModel: ObservableObject {
         self.post = post
         checkIfUserLikedPost()
         checkIfUserFlaggedPost()
+        fetchPostOwnerUser()
     }
     
     func like() {
@@ -133,6 +134,18 @@ class FeedCellViewModel: ObservableObject {
             
             // TODO: Check if I need to Delete subcollections of post
             
+        }
+    }
+    
+    func fetchPostOwnerUser() {
+        guard let _ = AuthViewModel.shared.userSession?.uid else { return }
+        guard let _ = post.id else { return }
+        
+        // fetch user object for that post
+        COLLECTION_USERS.document(post.ownerUid).getDocument { snapshot, _ in
+            guard let document = snapshot else { return }
+            
+            self.post.user = try? document.data(as: User.self)
         }
     }
     

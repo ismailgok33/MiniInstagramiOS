@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "login_image.jpg",
+      "filename" : "login_bg_image.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

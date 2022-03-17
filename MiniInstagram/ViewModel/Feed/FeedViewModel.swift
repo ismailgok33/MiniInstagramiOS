@@ -25,6 +25,8 @@ class FeedViewModel: ObservableObject {
             }
             self.posts = document.compactMap({ try? $0.data(as: Post.self) })
             
+//            COLLECTION_USERS.document()
+            
             snapshot?.documentChanges.forEach({ doc in
                 if doc.type == .removed {
                     let id = doc.document.documentID

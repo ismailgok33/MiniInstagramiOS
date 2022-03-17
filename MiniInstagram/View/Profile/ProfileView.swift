@@ -31,6 +31,7 @@ struct ProfileView: View {
                 .padding(.top)
             }
             .background(Color("background_color"))
+            
         }
     }
 }

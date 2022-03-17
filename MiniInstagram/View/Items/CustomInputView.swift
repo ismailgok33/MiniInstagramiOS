@@ -30,7 +30,7 @@ struct CustomInputView: View {
                 Button(action: action) {
                     Text("Send")
                         .bold()
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("text_header"))
                 }
 
             } //: HStack

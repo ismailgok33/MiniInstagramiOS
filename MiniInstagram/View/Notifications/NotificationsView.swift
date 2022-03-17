@@ -18,14 +18,14 @@ struct NotificationsView: View {
         VStack {
             // Follow notifications scroll view
             ScrollView(.horizontal) {
-                LazyVStack(spacing: 12) {
+                LazyHStack() {
                     ForEach(viewModel.notifications.filter({ $0.type == .follow })) { notification in
-                        VStack {
                             FollowNotificationCell(notification: notification)
                                 .padding(.horizontal)
-                        } //: VStack
+                       
                     } //: ForEach
-                } //: LazyVStack
+                } //: LazyHStack
+                .frame(height: 100)
             } //: ScrollView - follow
             
             // Like and post notifications scroll view

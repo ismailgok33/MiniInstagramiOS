@@ -2,7 +2,7 @@
 //  LazyView.swift
 //  InstagramSwiftUITutorial
 //
-//  Created by Stephen Dowless on 1/8/21.
+//  Created by İsmail on 9.03.2022.
 //
 
 import SwiftUI

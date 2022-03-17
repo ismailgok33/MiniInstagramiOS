@@ -38,6 +38,10 @@ class PostGridViewModel: ObservableObject {
                 return
             }
             self.posts = document.compactMap({ try? $0.data(as: Post.self) })
+            
+            if self.posts.isEmpty {
+                self.noPosts = true
+            }
         }
     }
     
@@ -48,6 +52,11 @@ class PostGridViewModel: ObservableObject {
                 return
             }
             let posts = document.compactMap({ try? $0.data(as: Post.self) })
+            
+            if posts.isEmpty {
+                self.noPosts = true
+            }
+            
             self.posts = posts.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }) // sort for new post is top
         }
     }

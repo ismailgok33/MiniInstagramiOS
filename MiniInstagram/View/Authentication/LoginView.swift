@@ -15,14 +15,12 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             ZStack {
-//                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .top, endPoint: .bottom)
-//                    .ignoresSafeArea()
                 
                 VStack {
                     Image("login_image")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height / 2))
+                        .frame(width: getRect().width, height: (getRect().height / 2))
                         .foregroundColor(.white)
                         .ignoresSafeArea()
                     
@@ -42,13 +40,17 @@ struct LoginView: View {
                                 
                                 Text("Sign in with Google")
                                     .font(.headline)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("text_header"))
     //                                .frame(width: 300, height: 70)
                                     
                             } //: HStack
                             .frame(width: UIScreen.main.bounds.width - 30, height: 70)
-                            .background(Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)))
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .overlay(
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(Color("google_login_color"), lineWidth: 2)
+                                    )
+//                            .background(Color("google_login_color"))
+//                            .clipShape(RoundedRectangle(cornerRadius: 20))
                             
                             
                            
@@ -73,7 +75,7 @@ struct LoginView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .frame(width: UIScreen.main.bounds.width - 30, height: 70)
-                                .background(Color.black)
+                                .background(Color("email_login_color"))
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                         }
 
@@ -85,7 +87,7 @@ struct LoginView: View {
                                 HStack {
                                     Text("Not a member?")
                                         .font(.system(size: 18))
-                                        .foregroundColor(.black)
+                                        .foregroundColor(Color("text_header"))
                                     
                                     Text("Signup now")
                                         .font(.system(size: 18, weight: .semibold))
@@ -103,6 +105,7 @@ struct LoginView: View {
                     
                     
                 } //: VStack
+                .background(Color("background_color"))
                 .padding(.top, -44)
             } //: ZStack
         }

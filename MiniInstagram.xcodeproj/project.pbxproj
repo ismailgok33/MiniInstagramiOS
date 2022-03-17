@@ -79,6 +79,7 @@
 		ECDEE25727E30EA5003A497B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE25627E30EA5003A497B /* SettingsView.swift */; };
 		ECDEE25927E313E3003A497B /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE25827E313E3003A497B /* NavigationBarModifier.swift */; };
 		ECDEE25D27E316FF003A497B /* ReelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE25C27E316FF003A497B /* ReelsView.swift */; };
+		ECDEE26127E3A7AC003A497B /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDEE26027E3A7AC003A497B /* GeometryGetter.swift */; };
 		ECEBCD4327DD73CA001F4796 /* BottomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEBCD4227DD73CA001F4796 /* BottomCardView.swift */; };
 		ECEBCD4527DD9560001F4796 /* DeleteModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEBCD4427DD9560001F4796 /* DeleteModifier.swift */; };
 /* End PBXBuildFile section */
@@ -148,6 +149,7 @@
 		ECDEE25627E30EA5003A497B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		ECDEE25827E313E3003A497B /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		ECDEE25C27E316FF003A497B /* ReelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsView.swift; sourceTree = "<group>"; };
+		ECDEE26027E3A7AC003A497B /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		ECEBCD4227DD73CA001F4796 /* BottomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardView.swift; sourceTree = "<group>"; };
 		ECEBCD4427DD9560001F4796 /* DeleteModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -374,6 +376,7 @@
 				ECDEE24D27E15D94003A497B /* LoadingView.swift */,
 				ECDEE24F27E2F92F003A497B /* BackButtonView.swift */,
 				ECDEE25827E313E3003A497B /* NavigationBarModifier.swift */,
+				ECDEE26027E3A7AC003A497B /* GeometryGetter.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				ECB981BA27DC0B670077BCB7 /* EditProfileView.swift in Sources */,
 				ECB981CB27DC835C0077BCB7 /* FeedCellDetail.swift in Sources */,
 				ECD3624F27DB211F00C89A4D /* CommentCell.swift in Sources */,
+				ECDEE26127E3A7AC003A497B /* GeometryGetter.swift in Sources */,
 				ECD3623D27DAA4F700C89A4D /* ProfileViewModel.swift in Sources */,
 				EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */,
 				ECD3625327DB242700C89A4D /* CustomInputView.swift in Sources */,
@@ -698,7 +702,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniInstagram/Preview Content\"";
 				DEVELOPMENT_TEAM = G3P4L7GVWA;
 				ENABLE_PREVIEWS = YES;
@@ -730,7 +734,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniInstagram/Preview Content\"";
 				DEVELOPMENT_TEAM = G3P4L7GVWA;
 				ENABLE_PREVIEWS = YES;
