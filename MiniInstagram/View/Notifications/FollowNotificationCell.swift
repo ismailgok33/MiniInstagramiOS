@@ -24,11 +24,19 @@ struct FollowNotificationCell: View {
         
         if viewModel.notification.type == .follow {
             VStack {
-                KFImage(URL(string: viewModel.notification.profileImageURL))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 60, height: 60)
-                    .clipShape(Circle())
+                
+                NavigationLink {
+                    if let user = viewModel.notification.user {
+                        LazyView(ProfileView(user: user))
+                    }
+                } label: {
+                    KFImage(URL(string: viewModel.notification.profileImageURL))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .clipShape(Circle())
+                }
+                
                 
                 Button {
                     isFollowed ? viewModel.unfollow() : viewModel.follow()

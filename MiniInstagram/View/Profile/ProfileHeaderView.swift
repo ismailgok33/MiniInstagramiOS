@@ -48,8 +48,10 @@ struct ProfileHeaderView: View {
             
                 HStack {
                     
-                    BackButtonView(inProfileView: true)
-                        .padding()
+                    if !viewModel.user.isCurrentUser {
+                        BackButtonView(inProfileView: true)
+                            .padding()
+                    }
                     
                     Spacer()
                     
