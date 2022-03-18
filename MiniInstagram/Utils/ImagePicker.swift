@@ -11,9 +11,11 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var image: UIImage?
     @Environment(\.presentationMode) var mode
+    var sourceType: UIImagePickerController.SourceType
     
     func makeUIViewController(context: Context) -> some UIViewController {
         let picker = UIImagePickerController()
+        picker.sourceType = self.sourceType
         picker.delegate = context.coordinator
         return picker
     }

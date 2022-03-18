@@ -14,6 +14,8 @@ struct UploadPostView: View {
     @State var captionText = ""
     @State var imagePickerPresented = false
     @State var accessingPhotos = false
+    @State var showActionSheet = false
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var tabIndex: Int
     @ObservedObject var viewModel = UploadPostViewModel()
     
@@ -28,8 +30,10 @@ struct UploadPostView: View {
             VStack {
                 if postImage == nil {
                     Button {
-                        imagePickerPresented.toggle()
-                        accessingPhotos = true
+//                        imagePickerPresented.toggle()
+//                        accessingPhotos = true
+                        
+                        showActionSheet.toggle()
                     } label: {
                         Image("plus_photo")
                             .resizable()
@@ -43,13 +47,35 @@ struct UploadPostView: View {
                     .sheet(isPresented: $imagePickerPresented) {
                         accessingPhotos = false
                         loadImage()
-                        
+
                     } content: {
-                        ImagePicker(image: $selectedImage)
+                        ImagePicker(image: $selectedImage, sourceType: sourceType)
                     }
+                    .actionSheet(isPresented: $showActionSheet) {
+                        ActionSheet(title: Text("Choose an action"), buttons: [
+                            .default(Text("Choose a photo")) {
+                                self.sourceType = .photoLibrary
+                                self.imagePickerPresented = true
+                                self.accessingPhotos = true
+                            },
+                            .default(Text("Take a photo")) {
+                                self.sourceType = .camera
+                                self.imagePickerPresented = true
+                                self.accessingPhotos = true
+                            },
+                            .cancel()
+                        ])
+                    }
+                    
+//                    .sheet(isPresented: $imagePickerPresented) {
+//                        accessingPhotos = false
+//                        loadImage()
+//
+//                    } content: {
+//                        ImagePicker(image: $selectedImage)
+//                    }
 
                 }
-                    
                 else if let image = postImage {
                     HStack(alignment: .top) {
                         image
