@@ -29,52 +29,30 @@ struct UploadPostView: View {
             
             VStack {
                 if postImage == nil {
-                    Button {
-//                        imagePickerPresented.toggle()
-//                        accessingPhotos = true
+                    
+                    VStack {
                         
-                        showActionSheet.toggle()
-                    } label: {
-                        Image("plus_photo")
-                            .resizable()
-                            .renderingMode(.template)
-                            .scaledToFill()
-                            .frame(width: 180, height: 180)
-                            .clipped()
-                            .padding(.top, 56)
-                            .foregroundColor(.black)
-                    }
-                    .sheet(isPresented: $imagePickerPresented) {
-                        accessingPhotos = false
-                        loadImage()
-
-                    } content: {
-                        ImagePicker(image: $selectedImage, sourceType: sourceType)
-                    }
-                    .actionSheet(isPresented: $showActionSheet) {
-                        ActionSheet(title: Text("Choose an action"), buttons: [
-                            .default(Text("Choose a photo")) {
-                                self.sourceType = .photoLibrary
-                                self.imagePickerPresented = true
-                                self.accessingPhotos = true
-                            },
-                            .default(Text("Take a photo")) {
-                                self.sourceType = .camera
-                                self.imagePickerPresented = true
-                                self.accessingPhotos = true
-                            },
-                            .cancel()
-                        ])
+                    } //: VStack - inner if statement
+                    .onAppear {
+                        showActionSheet = true
                     }
                     
-//                    .sheet(isPresented: $imagePickerPresented) {
-//                        accessingPhotos = false
-//                        loadImage()
+//                    Button {
+////                        imagePickerPresented.toggle()
+////                        accessingPhotos = true
 //
-//                    } content: {
-//                        ImagePicker(image: $selectedImage)
+//                        showActionSheet.toggle()
+//                    } label: {
+//                        Image("plus_photo")
+//                            .resizable()
+//                            .renderingMode(.template)
+//                            .scaledToFill()
+//                            .frame(width: 180, height: 180)
+//                            .clipped()
+//                            .padding(.top, 56)
+//                            .foregroundColor(.black)
 //                    }
-
+                    
                 }
                 else if let image = postImage {
                     HStack(alignment: .top) {
@@ -105,10 +83,13 @@ struct UploadPostView: View {
                         
                         Button {
                             if let image = selectedImage {
+                                showActionSheet = false
+                                
                                 viewModel.uploadPost(caption: captionText, image: image) { _ in
                                     captionText = ""
                                     postImage = nil
                                     tabIndex = 0
+                                    
                                 }
                             }
                         } label: {
@@ -128,13 +109,35 @@ struct UploadPostView: View {
                 Spacer()
                 
             } //: VStack
+            .sheet(isPresented: $imagePickerPresented) {
+                accessingPhotos = false
+                loadImage()
+
+            } content: {
+                ImagePicker(image: $selectedImage, sourceType: sourceType)
+            }
+            .actionSheet(isPresented: $showActionSheet) {
+                ActionSheet(title: Text("Choose an action"), buttons: [
+                    .default(Text("Choose a photo")) {
+                        self.sourceType = .photoLibrary
+                        self.imagePickerPresented = true
+                        self.accessingPhotos = true
+                    },
+                    .default(Text("Take a photo")) {
+                        self.sourceType = .camera
+                        self.imagePickerPresented = true
+                        self.accessingPhotos = true
+                    },
+                    .cancel()
+                ])
+            }
             
             if viewModel.isUploading {
                 LoadingView()
             }
             
         } //: ZStack
-        
+       
         
         
     }
