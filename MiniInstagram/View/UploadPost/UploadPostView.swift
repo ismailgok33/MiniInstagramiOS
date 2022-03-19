@@ -6,16 +6,20 @@
 //
 
 import SwiftUI
+import AVFoundation
+import Mantis
 
 struct UploadPostView: View {
     
     @State private var selectedImage: UIImage?
     @State var postImage: Image?
+    @State var postUIImage: UIImage?
     @State var captionText = ""
     @State var imagePickerPresented = false
     @State var accessingPhotos = false
     @State var showActionSheet = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var showImageCropper = false
     @Binding var tabIndex: Int
     @ObservedObject var viewModel = UploadPostViewModel()
     
@@ -33,26 +37,21 @@ struct UploadPostView: View {
                     VStack {
                         
                     } //: VStack - inner if statement
+                    .fullScreenCover(isPresented: $showImageCropper, onDismiss: {
+                        if let img = postUIImage {
+                            postImage = Image(uiImage: img)
+                        }
+                    }, content: {
+                        ImageEditor(theImage: $selectedImage, isShowing: $showImageCropper, croppedImage: $postUIImage)
+                        //                        ImageCropper(image: self.$selectedImage, visible: self.$showImageCropper, done: imageCropped)
+                            .zIndex(10)
+                    })
+                    .onDisappear(perform: {
+                        showActionSheet = false
+                    })
                     .onAppear {
                         showActionSheet = true
                     }
-                    
-//                    Button {
-////                        imagePickerPresented.toggle()
-////                        accessingPhotos = true
-//
-//                        showActionSheet.toggle()
-//                    } label: {
-//                        Image("plus_photo")
-//                            .resizable()
-//                            .renderingMode(.template)
-//                            .scaledToFill()
-//                            .frame(width: 180, height: 180)
-//                            .clipped()
-//                            .padding(.top, 56)
-//                            .foregroundColor(.black)
-//                    }
-                    
                 }
                 else if let image = postImage {
                     HStack(alignment: .top) {
@@ -62,7 +61,7 @@ struct UploadPostView: View {
                             .frame(width: 96, height: 96)
                             .clipped()
                         
-    //                    TextField("Enter your caption...", text: $captionText)
+                        //                    TextField("Enter your caption...", text: $captionText)
                         TextArea(text: $captionText, placeholder: "Enter your caption..")
                             .frame(height: 200)
                     } //: HStack
@@ -72,6 +71,7 @@ struct UploadPostView: View {
                         Button {
                             captionText = ""
                             postImage = nil
+                            showActionSheet = true
                         } label: {
                             Text("Cancel")
                                 .font(.system(size: 16, weight: .semibold))
@@ -82,14 +82,13 @@ struct UploadPostView: View {
                         }
                         
                         Button {
-                            if let image = selectedImage {
+                            if let image = postUIImage {
                                 showActionSheet = false
                                 
                                 viewModel.uploadPost(caption: captionText, image: image) { _ in
                                     captionText = ""
                                     postImage = nil
                                     tabIndex = 0
-                                    
                                 }
                             }
                         } label: {
@@ -103,16 +102,16 @@ struct UploadPostView: View {
                         
                     } //: HStack
                     .padding()
-
+                    
                 }
-               
+                
                 Spacer()
                 
             } //: VStack
             .sheet(isPresented: $imagePickerPresented) {
                 accessingPhotos = false
                 loadImage()
-
+                
             } content: {
                 ImagePicker(image: $selectedImage, sourceType: sourceType)
             }
@@ -128,16 +127,24 @@ struct UploadPostView: View {
                         self.imagePickerPresented = true
                         self.accessingPhotos = true
                     },
-                    .cancel()
+                    .destructive(Text("Cancel")){
+                        captionText = ""
+                        postImage = nil
+                        tabIndex = 0
+                        showActionSheet = false
+                    }
+                    //                    .cancel()
                 ])
             }
+            
+            
             
             if viewModel.isUploading {
                 LoadingView()
             }
             
         } //: ZStack
-       
+        
         
         
     }
@@ -145,8 +152,8 @@ struct UploadPostView: View {
 
 extension UploadPostView {
     func loadImage() {
-        guard let selectedImage = selectedImage else { return }
-        postImage = Image(uiImage: selectedImage)
+        guard let _ = selectedImage else { return }
+        showImageCropper.toggle()
     }
 }
 

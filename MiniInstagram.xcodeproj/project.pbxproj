@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC16802527E591E100590C44 /* ImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16802427E591E100590C44 /* ImageCropper.swift */; };
+		EC16802D27E5A72000590C44 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = EC16802C27E5A72000590C44 /* CropViewController */; };
+		EC16802F27E5A72000590C44 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = EC16802E27E5A72000590C44 /* TOCropViewController */; };
+		EC16803227E5A7CD00590C44 /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = EC16803127E5A7CD00590C44 /* Mantis */; };
+		EC16803427E5A7E000590C44 /* ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16803327E5A7E000590C44 /* ImageEditor.swift */; };
 		EC35E1DA27DEB0FC005AF018 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35E1D927DEB0FC005AF018 /* NotificationView.swift */; };
 		EC35E1DC27DEB663005AF018 /* NotificationBannerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */; };
 		EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39651E27D9AEBC00CF1D1D /* ImagePicker.swift */; };
@@ -85,6 +90,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC16802427E591E100590C44 /* ImageCropper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCropper.swift; sourceTree = "<group>"; };
+		EC16803327E5A7E000590C44 /* ImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditor.swift; sourceTree = "<group>"; };
 		EC35E1D927DEB0FC005AF018 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBannerViewModifier.swift; sourceTree = "<group>"; };
 		EC39651E27D9AEBC00CF1D1D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -159,15 +166,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC16803227E5A7CD00590C44 /* Mantis in Frameworks */,
 				EC39655627D9DB2800CF1D1D /* FirebaseMessaging in Frameworks */,
 				EC39654A27D9DB2800CF1D1D /* FirebaseAnalytics in Frameworks */,
 				EC39655827D9DB2800CF1D1D /* FirebaseStorage in Frameworks */,
 				EC39655427D9DB2800CF1D1D /* FirebaseFunctions in Frameworks */,
 				EC39654E27D9DB2800CF1D1D /* FirebaseCrashlytics in Frameworks */,
 				ECB981C427DC5A250077BCB7 /* GoogleSignIn in Frameworks */,
+				EC16802D27E5A72000590C44 /* CropViewController in Frameworks */,
 				EC39654C27D9DB2800CF1D1D /* FirebaseAuth in Frameworks */,
 				EC39655227D9DB2800CF1D1D /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				EC39655027D9DB2800CF1D1D /* FirebaseFirestore in Frameworks */,
+				EC16802F27E5A72000590C44 /* TOCropViewController in Frameworks */,
 				EC39652F27D9B82C00CF1D1D /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +248,8 @@
 				EC6AE2B827D99F6000734783 /* Extensions.swift */,
 				EC39651E27D9AEBC00CF1D1D /* ImagePicker.swift */,
 				ECEBCD4427DD9560001F4796 /* DeleteModifier.swift */,
+				EC16802427E591E100590C44 /* ImageCropper.swift */,
+				EC16803327E5A7E000590C44 /* ImageEditor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -451,6 +463,9 @@
 				EC39655527D9DB2800CF1D1D /* FirebaseMessaging */,
 				EC39655727D9DB2800CF1D1D /* FirebaseStorage */,
 				ECB981C327DC5A250077BCB7 /* GoogleSignIn */,
+				EC16802C27E5A72000590C44 /* CropViewController */,
+				EC16802E27E5A72000590C44 /* TOCropViewController */,
+				EC16803127E5A7CD00590C44 /* Mantis */,
 			);
 			productName = MiniInstagram;
 			productReference = ECD2C95527D973400083612E /* MiniInstagram.app */;
@@ -484,6 +499,8 @@
 				EC39652D27D9B82C00CF1D1D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				EC39654827D9DB2800CF1D1D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				ECB981C227DC5A250077BCB7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				EC16802B27E5A72000590C44 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+				EC16803027E5A7CD00590C44 /* XCRemoteSwiftPackageReference "Mantis" */,
 			);
 			productRefGroup = ECD2C95627D973400083612E /* Products */;
 			projectDirPath = "";
@@ -559,12 +576,14 @@
 				ECDEE25727E30EA5003A497B /* SettingsView.swift in Sources */,
 				EC35E1DC27DEB663005AF018 /* NotificationBannerViewModifier.swift in Sources */,
 				EC6AE2B127D9974600734783 /* SearchBar.swift in Sources */,
+				EC16802527E591E100590C44 /* ImageCropper.swift in Sources */,
 				ECD2C98127D9761E0083612E /* NotificationsView.swift in Sources */,
 				ECD2C98727D978460083612E /* FeedCell.swift in Sources */,
 				ECD3624527DAFED900C89A4D /* FeedViewModel.swift in Sources */,
 				ECD3624927DB103900C89A4D /* FeedCellViewModel.swift in Sources */,
 				EC6B47AF27D9A86A001B0BE0 /* ProfileActionButtonView.swift in Sources */,
 				ECDEE25927E313E3003A497B /* NavigationBarModifier.swift in Sources */,
+				EC16803427E5A7E000590C44 /* ImageEditor.swift in Sources */,
 				ECD3623B27DA64D000C89A4D /* SearchViewModel.swift in Sources */,
 				ECD3624127DAEA7E00C89A4D /* UploadPostViewModel.swift in Sources */,
 				EC39653F27D9BD9B00CF1D1D /* CustomTextField.swift in Sources */,
@@ -786,6 +805,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EC16802B27E5A72000590C44 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.6.0;
+			};
+		};
+		EC16803027E5A7CD00590C44 /* XCRemoteSwiftPackageReference "Mantis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/guoyingtao/Mantis.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 		EC39652D27D9B82C00CF1D1D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -813,6 +848,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EC16802C27E5A72000590C44 /* CropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC16802B27E5A72000590C44 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = CropViewController;
+		};
+		EC16802E27E5A72000590C44 /* TOCropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC16802B27E5A72000590C44 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = TOCropViewController;
+		};
+		EC16803127E5A7CD00590C44 /* Mantis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC16803027E5A7CD00590C44 /* XCRemoteSwiftPackageReference "Mantis" */;
+			productName = Mantis;
+		};
 		EC39652E27D9B82C00CF1D1D /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC39652D27D9B82C00CF1D1D /* XCRemoteSwiftPackageReference "Kingfisher" */;
