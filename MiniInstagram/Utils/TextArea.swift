@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct TextArea: View {
     @Binding var text: String
@@ -27,8 +28,17 @@ struct TextArea: View {
             }
             
             TextEditor(text: $text)
+                .lineSpacing(10)
+                .autocapitalization(.words)
+                .disableAutocorrection(true)
                 .padding(4)
+            
         }
+        .overlay(
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(Color("text_header"), lineWidth: 2)
+        )
+        .padding()
         .font(.body)
     }
 }

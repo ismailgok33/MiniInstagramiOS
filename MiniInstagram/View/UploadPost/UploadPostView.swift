@@ -14,7 +14,13 @@ struct UploadPostView: View {
     @State private var selectedImage: UIImage?
     @State var postImage: Image?
     @State var postUIImage: UIImage?
-    @State var captionText = ""
+    @State var captionText = "" {
+        didSet {
+            if captionText.count > 500 && oldValue.count <= 500 {
+                captionText = oldValue
+            }
+        }
+    }
     @State var imagePickerPresented = false
     @State var accessingPhotos = false
     @State var showActionSheet = false
@@ -54,18 +60,39 @@ struct UploadPostView: View {
                     }
                 }
                 else if let image = postImage {
-                    HStack(alignment: .top) {
+                    VStack {
                         image
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 96, height: 96)
+//                            .frame(width: 96, height: 96)
+                            .frame(maxHeight: 400)
+                            .frame(width: getRect().width)
+                            .padding(.horizontal, 20)
                             .clipped()
                         
                         //                    TextField("Enter your caption...", text: $captionText)
                         TextArea(text: $captionText, placeholder: "Enter your caption..")
                             .frame(height: 200)
-                    } //: HStack
+                            .frame(width: getRect().width)
+                            .padding(.horizontal, 20)
+                    }
                     .padding()
+                    
+                    Spacer()
+                    
+//                    HStack(alignment: .top) {
+//                        image
+//                            .resizable()
+//                            .scaledToFill()
+//                            .frame(width: 96, height: 96)
+//                            .clipped()
+//
+//                        //                    TextField("Enter your caption...", text: $captionText)
+//                        TextArea(text: $captionText, placeholder: "Enter your caption..")
+//                            .frame(height: 200)
+//
+//                    } //: HStack
+//                    .padding()
                     
                     HStack(spacing: 16) {
                         Button {
@@ -84,10 +111,12 @@ struct UploadPostView: View {
                         Button {
                             if let image = postUIImage {
                                 showActionSheet = false
+                                accessingPhotos = true
                                 
                                 viewModel.uploadPost(caption: captionText, image: image) { _ in
                                     captionText = ""
                                     postImage = nil
+                                    accessingPhotos = false
                                     tabIndex = 0
                                 }
                             }
@@ -105,7 +134,7 @@ struct UploadPostView: View {
                     
                 }
                 
-                Spacer()
+                
                 
             } //: VStack
             .sheet(isPresented: $imagePickerPresented) {
@@ -144,8 +173,6 @@ struct UploadPostView: View {
             }
             
         } //: ZStack
-        
-        
         
     }
 }
