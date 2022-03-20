@@ -33,37 +33,37 @@ struct FeedView: View {
                 Spacer()
 
                 // Search Button
-                NavigationLink {
-                    SearchView()
-                } label: {
-                    Image("search_icon")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 26, height: 26)
-                }
-                .padding(.horizontal, 4)
-                
-                // Activity Button
-                NavigationLink {
-                    NotificationsView()
-                } label: {
-                    Image("activity_icon")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 26, height: 26)
-                }
-                .padding(.horizontal, 4)
-                
-                // Message Button
-                Button(action: {
-                    // Go to message screen
-                }, label: {
-                    Image("message_icon")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 26, height: 26)
-                })
-                .padding(.horizontal, 4)
+//                NavigationLink {
+//                    SearchView()
+//                } label: {
+//                    Image("search_icon")
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: 26, height: 26)
+//                }
+//                .padding(.horizontal, 4)
+//
+//                // Activity Button
+//                NavigationLink {
+//                    NotificationsView()
+//                } label: {
+//                    Image("activity_icon")
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: 26, height: 26)
+//                }
+//                .padding(.horizontal, 4)
+//
+//                // Message Button
+//                Button(action: {
+//                    // Go to message screen
+//                }, label: {
+//                    Image("message_icon")
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: 26, height: 26)
+//                })
+//                .padding(.horizontal, 4)
                 
             } //: HStack
             .padding(.horizontal)

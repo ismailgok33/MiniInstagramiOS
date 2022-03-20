@@ -29,12 +29,12 @@ struct MainTabView: View {
                         Image("feed_icon")
                     }).tag(0)
                 
-                ReelsView()
+                SearchView()
                     .onTapGesture {
                         selectedIndex = 1
                     }
                     .tabItem({
-                        Image("reels_icon")
+                        Image("search_icon")
                     }).tag(1)
                 
                 UploadPostView(tabIndex: $selectedIndex)
@@ -46,12 +46,12 @@ struct MainTabView: View {
                             .frame(width: 40, height: 40)
                     }).tag(2)
                 
-                ShopView()
+                NotificationsView()
                     .onTapGesture {
                         selectedIndex = 3
                     }
                     .tabItem({
-                        Image("shop_icon")
+                        Image("activity_icon")
                     }).tag(3)
                 
                 ProfileView(user: user)
@@ -65,23 +65,8 @@ struct MainTabView: View {
     //        .tint(.black)
             .accentColor(.black)
             .navigationTitle(tabTitle)
-//            .navigationBarItems(leading: logoutButton)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                            logoutButton
-                        }
-                    }
             .navigationBarTitleDisplayMode(.inline)
         }
-    }
-    
-    var logoutButton: some View {
-        Button {
-            AuthViewModel.shared.signOut()
-        } label: {
-            Text("Logout").foregroundColor(.black)
-        }
-
     }
     
     var tabTitle: String {

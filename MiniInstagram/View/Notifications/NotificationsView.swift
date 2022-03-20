@@ -10,23 +10,39 @@ import SwiftUI
 struct NotificationsView: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+//    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel = NotificationsViewModel()
     
     var body: some View {
         
         VStack {
-            // Follow notifications scroll view
-            ScrollView(.horizontal) {
-                LazyHStack() {
-                    ForEach(viewModel.notifications.filter({ $0.type == .follow })) { notification in
-                            FollowNotificationCell(notification: notification)
-                                .padding(.horizontal)
-                       
-                    } //: ForEach
-                } //: LazyHStack
-                .frame(height: 100)
-            } //: ScrollView - follow
+            
+            HStack {
+                Spacer()
+                
+                Text("Activity")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(Color("text_header"))
+                
+                Spacer()
+            } //: HStack
+            .frame(height: 30)
+            .padding(.vertical)
+            .padding(.top, 30)
+            
+            if let notificationList = viewModel.notifications.filter({ $0.type == .follow }) {
+                // Follow notifications scroll view
+                ScrollView(.horizontal) {
+                    LazyHStack() {
+                        ForEach(notificationList) { notification in
+                                FollowNotificationCell(notification: notification)
+                                    .padding(.horizontal)
+                           
+                        } //: ForEach
+                    } //: LazyHStack
+                    .frame(height: 100)
+                } //: ScrollView - follow
+            }
             
             // Like and post notifications scroll view
             ScrollView {
@@ -52,19 +68,10 @@ struct NotificationsView: View {
             
         } //: VStack
         .background(colorScheme == .dark ? Color("background_color") : Color("activity_bg_color"))
-        .navigationBarHidden(false)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarColor(colorScheme == .dark ? UIColor(named: "background_color") : UIColor(named: "activity_bg_color"))
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                BackButtonView()
-            }
-            ToolbarItem(placement: .navigation) {
-                Text("Activity")
-                    .font(.title3)
-                    .foregroundColor(Color("text_header"))
-            }
-        } //: toolbar
+//        .navigationBarColor(colorScheme == .dark ? UIColor(named: "background_color") : UIColor(named: "activity_bg_color"))
+        .navigationBarHidden(true)
+        .ignoresSafeArea()
+//        .navigationBarBackButtonHidden(false)
         
     } //: body
 }

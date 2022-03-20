@@ -37,15 +37,15 @@ struct NotificationCell: View {
                             .clipShape(Circle())
                         
                         VStack(alignment: .leading) {
-                            Text(viewModel.notification.username)
+                            Text(viewModel.notification.username).foregroundColor(Color("text_header"))
                                 .font(.system(size: 14, weight: .semibold))
-                            + Text(viewModel.notification.type.notificationMessage)
+                            + Text(viewModel.notification.type.notificationMessage).foregroundColor(Color("text_gray"))
                                 .font(.system(size: 15))
-                            + Text(" \(viewModel.timestampString)").foregroundColor(.gray)
+                            + Text(" \(viewModel.timestampString)").foregroundColor(Color("text_gray"))
                                 .font(.system(size: 12))
                                 
                         } //: VStack
-                        .frame(alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                             
                     }
                 }
@@ -56,8 +56,8 @@ struct NotificationCell: View {
             if viewModel.notification.type != .follow {
                 if let post = viewModel.notification.post {
                     NavigationLink {
-//                        FeedCell(viewModel: FeedCellViewModel(post: post))
-                        FeedCell(post: post, deleteAction: nil)
+//                        FeedCell(post: post, deleteAction: nil)
+                        FeedCellDetail(post: post)
                     } label: {
                         KFImage(URL(string: post.imageURL))
                             .resizable()
@@ -68,23 +68,6 @@ struct NotificationCell: View {
 
                 }
             }
-//            else {
-//                Button {
-//                    isFollowed ? viewModel.unfollow() : viewModel.follow()
-//                } label: {
-//                    Text(isFollowed ? "Following" : "Follow")
-//                        .font(.system(size: 15, weight: .semibold))
-//                        .frame(width: 172, height: 32)
-//                        .foregroundColor(isFollowed ? .black : .white)
-//                        .background(isFollowed ? Color.white : Color.blue)
-//                        .cornerRadius(3)
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 3)
-//                                .stroke(Color.gray, lineWidth: isFollowed ? 1 : 0)
-//                        )
-//                }
-//
-//            }
             
         } //: HStack
         .padding(.horizontal, 4)

@@ -62,7 +62,6 @@ struct FeedCellDetail: View {
                         ForEach(commentViewModel.comments) { comment in
                             CommentCell(viewModel: commentViewModel, comment: comment)
                         }
-                        .onDelete(perform: deleteComment)
                     }
                 }
                 .padding(.top)
