@@ -15,6 +15,7 @@ struct ProfileHeaderView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var offset: CGFloat = 0
     @State var showSettings = false
+    @State var isLogoutTapped = false
     
     var body: some View {
         VStack(alignment: .center) {
@@ -72,9 +73,11 @@ struct ProfileHeaderView: View {
             .padding(.horizontal)
             .offset(y: -100)
             .sheet(isPresented: $showSettings) {
-                
+                if isLogoutTapped {
+                    AuthViewModel.shared.signOut()
+                }
             } content: {
-                SettingsView()
+                SettingsView(isLogoutTapped: $isLogoutTapped)
             }
             
             // Profile Image
@@ -168,11 +171,11 @@ struct ProfileHeaderView: View {
         //        .background(Color(UIColor.systemGray6))
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
-        //        .toolbar {
-        //            ToolbarItem(placement: .navigationBarLeading) {
-        //                BackButtonView(inProfileView: true)
-        //            }
-        //        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackButtonView(inProfileView: true)
+            }
+        }
     }
 }
 

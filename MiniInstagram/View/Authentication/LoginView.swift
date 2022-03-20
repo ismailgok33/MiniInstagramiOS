@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AuthenticationServices
+import FBSDKLoginKit
 
 struct LoginView: View {
     @State private var email = ""
@@ -60,47 +61,52 @@ struct LoginView: View {
                         })
                         
                         // Apple Sign in
-                        SignInWithAppleButton { request in
-                            viewModel.nonce = randomNonceString()
-                            request.requestedScopes = [.email, .fullName]
-                            request.nonce = sha256(viewModel.nonce)
-                            
-                        } onCompletion: { result in
-                            
-                            switch result {
-                            case .success(let user):
-                                print("DEBUG: successfully signed in with Apple")
-                                // do login with Firebase
-                                guard let credential = user.credential as? ASAuthorizationAppleIDCredential else { print("DEBUG: error while Apple Signin with Firebase")
-                                    return
-                                }
-                                viewModel.appleLogin(credential: credential)
-                                
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            }
-                            
-                        }
-                        .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
-                        .frame(width: getRect().width - 30, height: 70)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
+//                        SignInWithAppleButton { request in
+//                            viewModel.nonce = randomNonceString()
+//                            request.requestedScopes = [.email, .fullName]
+//                            request.nonce = sha256(viewModel.nonce)
+//
+//                        } onCompletion: { result in
+//
+//                            switch result {
+//                            case .success(let user):
+//                                print("DEBUG: successfully signed in with Apple")
+//                                // do login with Firebase
+//                                guard let credential = user.credential as? ASAuthorizationAppleIDCredential else { print("DEBUG: error while Apple Signin with Firebase")
+//                                    return
+//                                }
+//                                viewModel.appleLogin(credential: credential)
+//
+//                            case .failure(let error):
+//                                print(error.localizedDescription)
+//                            }
+//
+//                        }
+//                        .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
+//                        .frame(width: getRect().width - 30, height: 70)
+//                        .clipShape(RoundedRectangle(cornerRadius: 20))
                         
                         // Facebook Sign in
+//                        FaceBookLoginView()
+//                            .frame(width: 180, height: 50, alignment: .center)
+//                            .padding()
+                        
                         Button(action: {
-                            viewModel.googleLogin()
+//                            viewModel.facebookLogin()
+                            
                         }, label: {
                             HStack {
-                                
+
                                 Image("facebook_logo")
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 40, height: 40)
                                     .clipped()
-                                
+
                                 Text("Sign in with Facebook")
                                     .font(.headline)
                                     .foregroundColor(.white)
-                                
+
                             } //: HStack
                             .frame(width: getRect().width - 30, height: 70)
                             .background(Color("facebook_login_color"))

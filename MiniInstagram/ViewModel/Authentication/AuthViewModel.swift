@@ -10,6 +10,7 @@ import Firebase
 import GoogleSignIn
 import CryptoKit
 import AuthenticationServices
+import FBSDKLoginKit
 
 class AuthViewModel: ObservableObject {
     
@@ -99,10 +100,30 @@ class AuthViewModel: ObservableObject {
             guard let user = result?.user else { return }
             
             let data = ["email": user.email, "username": user.displayName, "fullname": user.displayName, "profileImageURL": user.photoURL?.absoluteString, "uid": user.uid]
-            
-//                self.userSession = user
-//                self.fetchUser()
                             
+            COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { _ in
+                print("DEBUG: Successfully uploaded user data..")
+                self.userSession = user
+                self.fetchUser()
+            }
+        }
+    }
+    
+    func facebookLogin(credentials: AuthCredential) {
+        
+        Auth.auth().signIn(with: credentials) { result, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            // User successfully logged in to the app using Apple Sign in
+            print("DEBUG: User successfully logged in to the app using Faceboook Sign in...")
+            
+            guard let user = result?.user else { return }
+            
+            let data = ["email": user.email, "username": user.displayName, "fullname": user.displayName, "profileImageURL": user.photoURL?.absoluteString, "uid": user.uid]
+            
             COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { _ in
                 print("DEBUG: Successfully uploaded user data..")
                 self.userSession = user

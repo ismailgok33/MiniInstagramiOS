@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import GoogleSignIn
+import FBSDKCoreKit
 
 @main
 struct MiniInstagramApp: App {
@@ -21,7 +22,9 @@ struct MiniInstagramApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView().environmentObject(AuthViewModel.shared)
-//            LoginView().environmentObject(AuthViewModel())
+//                .onOpenURL { url in
+//                    ApplicationDelegate.shared.application(UIApplication.shared, open: url, sourceApplication: nil, annotation: UIApplication.OpenURLOptionsKey.annotation)
+//                }
         }
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Binding var isLogoutTapped: Bool
     
     var body: some View {
         VStack {
@@ -63,7 +64,7 @@ struct SettingsView: View {
            
             
         } //: VStack
-        .background(Color.white.opacity(0))
+        .background(Color("background_color"))
 //        .navigationBarBackButtonHidden(true)
 //        .toolbar {
 //            ToolbarItem(placement: .navigationBarLeading) {
@@ -75,10 +76,9 @@ struct SettingsView: View {
     var logoutButton: some View {
         
         Button {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                presentationMode.wrappedValue.dismiss()
-            }
-            AuthViewModel.shared.signOut()
+            isLogoutTapped = true
+            presentationMode.wrappedValue.dismiss()
+//            AuthViewModel.shared.signOut()
             
         } label: {
             Text("Logout")
@@ -95,6 +95,7 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(isLogoutTapped: .constant(false))
+            .preferredColorScheme(.dark)
     }
 }

@@ -13,6 +13,8 @@
 		EC16803227E5A7CD00590C44 /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = EC16803127E5A7CD00590C44 /* Mantis */; };
 		EC16803427E5A7E000590C44 /* ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16803327E5A7E000590C44 /* ImageEditor.swift */; };
 		EC16803627E681FB00590C44 /* TextBindingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16803527E681FB00590C44 /* TextBindingManager.swift */; };
+		EC16803C27E6D56200590C44 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = EC16803B27E6D56200590C44 /* FacebookLogin */; };
+		EC16803E27E6DFE600590C44 /* FacebookLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16803D27E6DFE600590C44 /* FacebookLoginView.swift */; };
 		EC35E1DA27DEB0FC005AF018 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35E1D927DEB0FC005AF018 /* NotificationView.swift */; };
 		EC35E1DC27DEB663005AF018 /* NotificationBannerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */; };
 		EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39651E27D9AEBC00CF1D1D /* ImagePicker.swift */; };
@@ -95,6 +97,7 @@
 		EC16803327E5A7E000590C44 /* ImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditor.swift; sourceTree = "<group>"; };
 		EC16803527E681FB00590C44 /* TextBindingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBindingManager.swift; sourceTree = "<group>"; };
 		EC16803727E689E700590C44 /* MiniInstagram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniInstagram.entitlements; sourceTree = "<group>"; };
+		EC16803D27E6DFE600590C44 /* FacebookLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginView.swift; sourceTree = "<group>"; };
 		EC35E1D927DEB0FC005AF018 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBannerViewModifier.swift; sourceTree = "<group>"; };
 		EC39651E27D9AEBC00CF1D1D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 				EC39655227D9DB2800CF1D1D /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				EC39655027D9DB2800CF1D1D /* FirebaseFirestore in Frameworks */,
 				EC16802F27E5A72000590C44 /* TOCropViewController in Frameworks */,
+				EC16803C27E6D56200590C44 /* FacebookLogin in Frameworks */,
 				EC39652F27D9B82C00CF1D1D /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +380,7 @@
 				EC39653627D9BB9D00CF1D1D /* RegistrationView.swift */,
 				EC39653427D9BB9D00CF1D1D /* ResetPasswordView.swift */,
 				ECB981C527DC744A0077BCB7 /* EmailLoginView.swift */,
+				EC16803D27E6DFE600590C44 /* FacebookLoginView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				EC16802C27E5A72000590C44 /* CropViewController */,
 				EC16802E27E5A72000590C44 /* TOCropViewController */,
 				EC16803127E5A7CD00590C44 /* Mantis */,
+				EC16803B27E6D56200590C44 /* FacebookLogin */,
 			);
 			productName = MiniInstagram;
 			productReference = ECD2C95527D973400083612E /* MiniInstagram.app */;
@@ -506,6 +512,7 @@
 				ECB981C227DC5A250077BCB7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				EC16802B27E5A72000590C44 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 				EC16803027E5A7CD00590C44 /* XCRemoteSwiftPackageReference "Mantis" */,
+				EC16803A27E6D56100590C44 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = ECD2C95627D973400083612E /* Products */;
 			projectDirPath = "";
@@ -576,6 +583,7 @@
 				ECDEE25427E30B8F003A497B /* ShopView.swift in Sources */,
 				ECD2C98327D976250083612E /* ProfileView.swift in Sources */,
 				ECD3624D27DB210C00C89A4D /* CommentsView.swift in Sources */,
+				EC16803E27E6DFE600590C44 /* FacebookLoginView.swift in Sources */,
 				EC6B47AD27D9A769001B0BE0 /* UserStatView.swift in Sources */,
 				ECD3625927DB3B2000C89A4D /* NotificationCellViewModel.swift in Sources */,
 				EC6AE2B527D999BC00734783 /* UserCell.swift in Sources */,
@@ -728,7 +736,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MiniInstagram/MiniInstagram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniInstagram/Preview Content\"";
 				DEVELOPMENT_TEAM = G3P4L7GVWA;
 				ENABLE_PREVIEWS = YES;
@@ -762,7 +770,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MiniInstagram/MiniInstagram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniInstagram/Preview Content\"";
 				DEVELOPMENT_TEAM = G3P4L7GVWA;
 				ENABLE_PREVIEWS = YES;
@@ -829,6 +837,14 @@
 				minimumVersion = 1.7.0;
 			};
 		};
+		EC16803A27E6D56100590C44 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
 		EC39652D27D9B82C00CF1D1D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -870,6 +886,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC16803027E5A7CD00590C44 /* XCRemoteSwiftPackageReference "Mantis" */;
 			productName = Mantis;
+		};
+		EC16803B27E6D56200590C44 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC16803A27E6D56100590C44 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
 		};
 		EC39652E27D9B82C00CF1D1D /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
