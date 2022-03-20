@@ -10,7 +10,7 @@ import Kingfisher
 
 struct ProfileHeaderView: View {
     
-//    let user: User
+    //    let user: User
     @ObservedObject var viewModel: ProfileViewModel
     @Environment(\.colorScheme) var colorScheme
     @State var offset: CGFloat = 0
@@ -46,36 +46,36 @@ struct ProfileHeaderView: View {
             
             // Settings menu
             
-                HStack {
-                    
-                    if !viewModel.user.isCurrentUser {
-                        BackButtonView(inProfileView: true)
-                            .padding()
-                    }
-                    
-                    Spacer()
-                    
-                    if viewModel.user.isCurrentUser  {
-                        Button {
-                            showSettings.toggle()
-                        } label: {
-                            Image("profile_settings_icon")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(Color("text_header"))
-                                
-                        }
-                    }
-
-                } //: HStack
-                .padding(.horizontal)
-                .offset(y: -100)
-                .sheet(isPresented: $showSettings) {
-                    
-                } content: {
-                    SettingsView()
+            HStack {
+                
+                if !viewModel.user.isCurrentUser {
+                    BackButtonView(inProfileView: true)
+                        .padding()
                 }
+                
+                Spacer()
+                
+                if viewModel.user.isCurrentUser  {
+                    Button {
+                        showSettings.toggle()
+                    } label: {
+                        Image("profile_settings_icon")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(Color("text_header"))
+                        
+                    }
+                }
+                
+            } //: HStack
+            .padding(.horizontal)
+            .offset(y: -100)
+            .sheet(isPresented: $showSettings) {
+                
+            } content: {
+                SettingsView()
+            }
             
             // Profile Image
             HStack {
@@ -99,7 +99,7 @@ struct ProfileHeaderView: View {
                     .frame(width: 100, height: 100)
                     .clipShape(Circle())
                     .padding(4)
-//                    .background(colorScheme == .dark ? Color.black : Color.white)
+                //                    .background(colorScheme == .dark ? Color.black : Color.white)
                     .background(Color("background_color"))
                     .clipShape(Circle())
                     .offset(y: -70)
@@ -118,7 +118,7 @@ struct ProfileHeaderView: View {
                 
             } //: HStack
             .frame(height: 150)
-//            .background(Color.white.cornerRadius(20))
+            //            .background(Color.white.cornerRadius(20))
             .background(Color("background_color").cornerRadius(20))
             .padding(.top)
             .offset(y: -40)
@@ -126,7 +126,7 @@ struct ProfileHeaderView: View {
             VStack(spacing: 5) {
                 Text(viewModel.user.fullname)
                     .font(.system(size: 22, weight: .bold))
-                    
+                
                 
                 if let bio = viewModel.user.bio {
                     Text(bio)
@@ -142,7 +142,7 @@ struct ProfileHeaderView: View {
                         .frame(width: 20, height: 20)
                     
                     Text("Grenoble")
-//                        .font(.system(size: 16, weight: .semibold))
+                    //                        .font(.system(size: 16, weight: .semibold))
                         .font(.caption)
                         .foregroundColor(Color("text_gray"))
                     
@@ -157,7 +157,7 @@ struct ProfileHeaderView: View {
                     
                 } //: HStack (profile action buttons)
                 
-               
+                
                 
             } //: VStack inner
             .padding(.top, -120)
@@ -165,14 +165,14 @@ struct ProfileHeaderView: View {
             
         } //: VStack
         .ignoresSafeArea(.all, edges: .top)
-//        .background(Color(UIColor.systemGray6))
+        //        .background(Color(UIColor.systemGray6))
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
-//        .toolbar {
-//            ToolbarItem(placement: .navigationBarLeading) {
-//                BackButtonView(inProfileView: true)
-//            }
-//        }
+        //        .toolbar {
+        //            ToolbarItem(placement: .navigationBarLeading) {
+        //                BackButtonView(inProfileView: true)
+        //            }
+        //        }
     }
 }
 
