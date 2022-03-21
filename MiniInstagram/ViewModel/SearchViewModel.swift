@@ -82,7 +82,7 @@ class SearchViewModel: ObservableObject {
                     case .success(let user):
                         self.users.append(user)
                     case .failure(let error):
-                        print("DEBUG: Error when fetching followers \(error.localizedDescription)")
+                        print("DEBUG: Error when fetching following \(error.localizedDescription)")
                     }
                     
                 }

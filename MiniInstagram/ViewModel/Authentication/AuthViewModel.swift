@@ -48,26 +48,33 @@ class AuthViewModel: ObservableObject {
               let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                              accessToken: authentication.accessToken)
             
-            // Firebase Auth
-            Auth.auth().signIn(with: credential) { result, error in
-                if let error = error {
-                    print("DEBUG: Login failed: \(error.localizedDescription)")
-                    return
+            // get anonymous image from firebase storage
+            ImageUploader.getAnonymousImage { imageUrl in
+                
+                // Firebase Auth
+                Auth.auth().signIn(with: credential) { result, error in
+                    if let error = error {
+                        print("DEBUG: Login failed: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    guard let user = result?.user else { return }
+                    
+                    let data = ["email": user.email, "username": user.displayName ?? user.email, "fullname": user.displayName ?? user.email, "profileImageURL": user.photoURL == nil ? imageUrl : user.photoURL?.absoluteString, "uid": user.uid]
+                    
+    //                self.userSession = user
+    //                self.fetchUser()
+                                    
+                    COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { _ in
+                        print("DEBUG: Successfully uploaded user data..")
+                        self.userSession = user
+                        self.fetchUser()
+                    }
                 }
                 
-                guard let user = result?.user else { return }
-                
-                let data = ["email": user.email, "username": user.displayName, "fullname": user.displayName, "profileImageURL": user.photoURL?.absoluteString, "uid": user.uid]
-                
-//                self.userSession = user
-//                self.fetchUser()
-                                
-                COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { _ in
-                    print("DEBUG: Successfully uploaded user data..")
-                    self.userSession = user
-                    self.fetchUser()
-                }
             }
+            
+            
             
         }
     }
@@ -100,15 +107,10 @@ class AuthViewModel: ObservableObject {
                     return
                 }
                 
-                // User successfully logged in to the app using Apple Sign in
-                print("DEBUG: User successfully logged in to the app using Apple Sign in...")
-                
                 guard let user = result?.user else { return }
                 
                 let data = ["email": user.email, "username": user.displayName ?? user.email, "fullname": user.displayName ?? user.email, "profileImageURL": user.photoURL == nil ? imageUrl : user.photoURL?.absoluteString, "uid": user.uid]
-                
-                print("DEBUG: Apple user Data: \(data)")
-                                
+                                                
                 COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { _ in
                     print("DEBUG: Successfully uploaded user data..")
                     self.userSession = user
@@ -136,6 +138,8 @@ class AuthViewModel: ObservableObject {
             guard let user = result?.user else { return }
             
             let data = ["email": user.email, "username": user.displayName, "fullname": user.displayName, "profileImageURL": user.photoURL?.absoluteString, "uid": user.uid]
+            
+            print("DEBUG: Facebook data: \(data)")
             
             COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { _ in
                 print("DEBUG: Successfully uploaded user data..")

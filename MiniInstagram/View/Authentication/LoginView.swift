@@ -87,31 +87,31 @@ struct LoginView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         
                         // Facebook Sign in
-//                        FaceBookLoginView()
-//                            .frame(width: 180, height: 50, alignment: .center)
-//                            .padding()
-                        
-                        Button(action: {
-//                            viewModel.facebookLogin()
-                            
-                        }, label: {
-                            HStack {
-
-                                Image("facebook_logo")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 40, height: 40)
-                                    .clipped()
-
-                                Text("Sign in with Facebook")
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-
-                            } //: HStack
+                        FaceBookLoginView()
                             .frame(width: getRect().width - 30, height: 70)
-                            .background(Color("facebook_login_color"))
                             .clipShape(RoundedRectangle(cornerRadius: 20))
-                        })
+                            
+                        
+//                        Button(action: {
+//
+//                        }, label: {
+//                            HStack {
+//
+//                                Image("facebook_logo")
+//                                    .resizable()
+//                                    .scaledToFill()
+//                                    .frame(width: 40, height: 40)
+//                                    .clipped()
+//
+//                                Text("Sign in with Facebook")
+//                                    .font(.headline)
+//                                    .foregroundColor(.white)
+//
+//                            } //: HStack
+//                            .frame(width: getRect().width - 30, height: 70)
+//                            .background(Color("facebook_login_color"))
+//                            .clipShape(RoundedRectangle(cornerRadius: 20))
+//                        })
                         
                         
                         // Email Sign In

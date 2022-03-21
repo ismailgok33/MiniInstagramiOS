@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
+import FacebookLogin
 
 @main
 struct MiniInstagramApp: App {
@@ -22,9 +23,9 @@ struct MiniInstagramApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView().environmentObject(AuthViewModel.shared)
-//                .onOpenURL { url in
-//                    ApplicationDelegate.shared.application(UIApplication.shared, open: url, sourceApplication: nil, annotation: UIApplication.OpenURLOptionsKey.annotation)
-//                }
+                .onOpenURL { url in
+                    ApplicationDelegate.shared.application(UIApplication.shared, open: url, sourceApplication: nil, annotation: UIApplication.OpenURLOptionsKey.annotation)
+                }
         }
     }
 }
@@ -38,11 +39,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return true
     }
     
-    func application(_ application: UIApplication, open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey: Any])
-      -> Bool {
-          
-      return GIDSignIn.sharedInstance.handle(url)
-    }
+//    func application(_ application: UIApplication, open url: URL,
+//                     options: [UIApplication.OpenURLOptionsKey: Any])
+//      -> Bool {
+//          
+//      return GIDSignIn.sharedInstance.handle(url)
+//    }
     
 }
