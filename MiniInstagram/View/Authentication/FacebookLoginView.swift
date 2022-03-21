@@ -7,6 +7,9 @@
 
 import SwiftUI
 import FBSDKLoginKit
+import FBSDKCoreKit
+import FacebookLogin
+import FacebookCore
 import Firebase
 
 struct FaceBookLoginView: UIViewRepresentable {
@@ -42,7 +45,14 @@ struct FaceBookLoginView: UIViewRepresentable {
     
     func makeUIView(context: UIViewRepresentableContext<FaceBookLoginView>) -> FBLoginButton {
         let view = FBLoginButton()
-        view.permissions = ["email"]
+        
+//        Settings.shared.appID = "1165774317294989"
+//        Settings.shared.displayName = "MiniSocialMediaApp"
+//        Settings.shared.clientToken = "5cc16364b43d6a208cdc35ead9fb1010"
+//        
+//        print("DEBUG: Facebook appID from Facebook Login View: \(Settings.shared.appID)")
+        
+        view.permissions = ["email", "public_profile"]
         view.delegate = context.coordinator
         return view
     }

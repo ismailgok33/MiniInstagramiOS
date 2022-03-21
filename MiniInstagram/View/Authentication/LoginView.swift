@@ -12,6 +12,7 @@ import FBSDKLoginKit
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+    @State var manager = LoginManager()
     @EnvironmentObject var viewModel: AuthViewModel
     @Environment(\.colorScheme) var colorScheme
     
@@ -87,10 +88,36 @@ struct LoginView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         
                         // Facebook Sign in
-                        FaceBookLoginView()
-                            .frame(width: getRect().width - 30, height: 70)
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
+//                        FaceBookLoginView()
+//                            .frame(width: getRect().width - 30, height: 70)
+//                            .clipShape(RoundedRectangle(cornerRadius: 20))
                             
+                        
+                        // Custom Facebook Login
+//                        Button {
+//                            
+//                            manager.logIn(permissions: ["public_profile", "email"], from: nil) { result, error in
+//                                if let error = error {
+//                                    print(error.localizedDescription)
+//                                    return
+//                                }
+//                                
+//                                // logged in successfully..
+//                                print("DEBUG: Facebook Login successful")
+//                                print("DEBUG: result: \(result)")
+//                            }
+//                            
+//                        } label: {
+//                            Text("Facebook Login")
+//                                .bold()
+//                                .foregroundColor(.white)
+//                                .padding(.horizontal, 35)
+//                                .padding()
+//                                .background(Color.blue)
+//                                .clipShape(Capsule())
+//                                
+//                        }
+
                         
 //                        Button(action: {
 //

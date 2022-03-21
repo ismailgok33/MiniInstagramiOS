@@ -2,30 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLIconFile</key>
-			<string></string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.405485068919-d70fc216rbqv8j489p3l40gp7c8qnkmd</string>
-				<string>fb3214145785528469</string>
-			</array>
-		</dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>3214145785528469</string>
-	<key>FacebookClientToken</key>
-	<string>750a2b024a9440155773bc2de0e50104</string>
-	<key>FacebookDisplayName</key>
-	<string>firstFreelanceProject</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbapi</string>
-		<string>fb-messenger-share-api</string>
-	</array>
+    <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLIconFile</key>
+                <string></string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>com.googleusercontent.apps.405485068919-d70fc216rbqv8j489p3l40gp7c8qnkmd</string>
+                    <string>fb3214145785528469</string>
+                </array>
+            </dict>
+        </array>
+        <key>FacebookAppID</key>
+        <string>3214145785528469</string>
+        <key>FacebookClientToken</key>
+        <string>750a2b024a9440155773bc2de0e50104</string>
+        <key>FacebookDisplayName</key>
+        <string>firstFreelanceProject</string>
+        <key>LSApplicationQueriesSchemes</key>
+        <array>
+            <string>fbapi</string>
+            <string>fb-messenger-share-api</string>
+        </array>
 </dict>
 </plist>
