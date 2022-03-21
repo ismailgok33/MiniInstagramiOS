@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CommentsView: View {
     
+    @Environment(\.currentTab) var tab
     @State var commentText = ""
     @ObservedObject var viewModel: CommentViewModel
     
@@ -20,7 +21,7 @@ struct CommentsView: View {
         VStack {
             // comment cells
             ScrollView {
-                LazyVStack(alignment: .leading, spacing: 24) {
+                VStack(alignment: .leading, spacing: 24) {
                     ForEach(viewModel.comments) { comment in
                         CommentCell(viewModel: viewModel, comment: comment)
                     }
@@ -39,6 +40,7 @@ struct CommentsView: View {
     func uploadComment() {
         viewModel.uploadComment(commentText: commentText)
         commentText = ""
+        UIApplication.shared.endEditing()
     }
 }
 

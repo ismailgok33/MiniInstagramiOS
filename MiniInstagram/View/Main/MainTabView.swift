@@ -28,6 +28,7 @@ struct MainTabView: View {
                     .tabItem({
                         Image("feed_icon")
                     }).tag(0)
+                    .environment(\.currentTab, $selectedIndex)
                 
                 SearchView()
                     .onTapGesture {
@@ -36,6 +37,7 @@ struct MainTabView: View {
                     .tabItem({
                         Image("search_icon")
                     }).tag(1)
+                    .environment(\.currentTab, $selectedIndex)
                 
                 UploadPostView(tabIndex: $selectedIndex)
                     .onTapGesture {
@@ -45,6 +47,7 @@ struct MainTabView: View {
                         Image("post_icon")
                             .frame(width: 40, height: 40)
                     }).tag(2)
+                    .environment(\.currentTab, $selectedIndex)
                 
                 NotificationsView()
                     .onTapGesture {
@@ -53,6 +56,7 @@ struct MainTabView: View {
                     .tabItem({
                         Image("activity_icon")
                     }).tag(3)
+                    .environment(\.currentTab, $selectedIndex)
                 
                 ProfileView(user: user)
                     .onTapGesture {
@@ -61,6 +65,7 @@ struct MainTabView: View {
                     .tabItem({
                         Image("profile_icon")
                     }).tag(4)
+                    .environment(\.currentTab, $selectedIndex)
             }
     //        .tint(.black)
             .accentColor(.black)
@@ -78,6 +83,17 @@ struct MainTabView: View {
         case 4: return "Profile"
         default: return ""
         }
+    }
+}
+
+struct CurrentTabKey: EnvironmentKey {
+    static var defaultValue: Binding<Int> = .constant(0)
+}
+
+extension EnvironmentValues {
+    var currentTab: Binding<Int> {
+        get { self[CurrentTabKey.self] }
+        set { self[CurrentTabKey.self] = newValue }
     }
 }
 

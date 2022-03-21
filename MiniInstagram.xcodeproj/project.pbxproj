@@ -15,6 +15,7 @@
 		EC16803627E681FB00590C44 /* TextBindingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16803527E681FB00590C44 /* TextBindingManager.swift */; };
 		EC16803C27E6D56200590C44 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = EC16803B27E6D56200590C44 /* FacebookLogin */; };
 		EC16803E27E6DFE600590C44 /* FacebookLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16803D27E6DFE600590C44 /* FacebookLoginView.swift */; };
+		EC16804127E7E5B800590C44 /* CommentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16804027E7E5B800590C44 /* CommentCellViewModel.swift */; };
 		EC35E1DA27DEB0FC005AF018 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35E1D927DEB0FC005AF018 /* NotificationView.swift */; };
 		EC35E1DC27DEB663005AF018 /* NotificationBannerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */; };
 		EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39651E27D9AEBC00CF1D1D /* ImagePicker.swift */; };
@@ -98,6 +99,7 @@
 		EC16803527E681FB00590C44 /* TextBindingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBindingManager.swift; sourceTree = "<group>"; };
 		EC16803727E689E700590C44 /* MiniInstagram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniInstagram.entitlements; sourceTree = "<group>"; };
 		EC16803D27E6DFE600590C44 /* FacebookLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginView.swift; sourceTree = "<group>"; };
+		EC16804027E7E5B800590C44 /* CommentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellViewModel.swift; sourceTree = "<group>"; };
 		EC35E1D927DEB0FC005AF018 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		EC35E1DB27DEB663005AF018 /* NotificationBannerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBannerViewModifier.swift; sourceTree = "<group>"; };
 		EC39651E27D9AEBC00CF1D1D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -192,6 +194,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC16803F27E7E59E00590C44 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				ECD3625027DB213A00C89A4D /* CommentViewModel.swift */,
+				EC16804027E7E5B800590C44 /* CommentCellViewModel.swift */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
 		ECD2C94C27D973400083612E = {
 			isa = PBXGroup;
 			children = (
@@ -278,11 +289,11 @@
 				ECD2C97927D9755E0083612E /* Profile */,
 				ECD2C97827D975580083612E /* Authentication */,
 				ECD2C97727D975510083612E /* Notification */,
+				EC16803F27E7E59E00590C44 /* Comment */,
 				ECD2C97627D9754D0083612E /* Feed */,
 				ECD3623A27DA64D000C89A4D /* SearchViewModel.swift */,
 				ECD3624027DAEA7E00C89A4D /* UploadPostViewModel.swift */,
 				ECD3624627DB030D00C89A4D /* PostGridViewModel.swift */,
-				ECD3625027DB213A00C89A4D /* CommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -572,6 +583,7 @@
 				ECDEE26127E3A7AC003A497B /* GeometryGetter.swift in Sources */,
 				ECD3623D27DAA4F700C89A4D /* ProfileViewModel.swift in Sources */,
 				EC39651F27D9AEBC00CF1D1D /* ImagePicker.swift in Sources */,
+				EC16804127E7E5B800590C44 /* CommentCellViewModel.swift in Sources */,
 				ECD3625327DB242700C89A4D /* CustomInputView.swift in Sources */,
 				EC6AE2BD27D9A34B00734783 /* ProfileHeaderView.swift in Sources */,
 				ECB981BC27DC211A0077BCB7 /* EditProfileViewModel.swift in Sources */,
@@ -736,7 +748,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MiniInstagram/MiniInstagram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniInstagram/Preview Content\"";
 				DEVELOPMENT_TEAM = G3P4L7GVWA;
 				ENABLE_PREVIEWS = YES;
@@ -770,7 +782,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MiniInstagram/MiniInstagram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniInstagram/Preview Content\"";
 				DEVELOPMENT_TEAM = G3P4L7GVWA;
 				ENABLE_PREVIEWS = YES;

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserListView: View {
     
+    @Environment(\.currentTab) var tab
     @ObservedObject var viewModel: SearchViewModel
     @Binding var searchText: String
     
@@ -20,12 +21,24 @@ struct UserListView: View {
         ScrollView {
             LazyVStack {
                 ForEach(users) { user in
-                    NavigationLink {
-                        LazyView(ProfileView(user: user))
-                    } label: {
-                        UserCell(user: user)
-                            .padding(.leading)
+                    if user.isCurrentUser {
+                        Button {
+                            tab.wrappedValue = 4
+                        } label: {
+                            UserCell(user: user)
+                                .padding(.leading)
+                        }
+
                     }
+                    else {
+                        NavigationLink {
+                            LazyView(ProfileView(user: user))
+                        } label: {
+                            UserCell(user: user)
+                                .padding(.leading)
+                        }
+                    }
+                    
 
                 }
             }

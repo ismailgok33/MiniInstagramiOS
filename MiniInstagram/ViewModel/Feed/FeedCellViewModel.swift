@@ -146,6 +146,7 @@ class FeedCellViewModel: ObservableObject {
             guard let document = snapshot else { return }
             
             self.post.user = try? document.data(as: User.self)
+//            print("DEBUG: Post user is \(self.post.user?.username)")
         }
     }
     

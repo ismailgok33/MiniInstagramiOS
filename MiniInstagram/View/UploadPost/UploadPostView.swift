@@ -173,6 +173,9 @@ struct UploadPostView: View {
             }
             
         } //: ZStack
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
         
     }
 }

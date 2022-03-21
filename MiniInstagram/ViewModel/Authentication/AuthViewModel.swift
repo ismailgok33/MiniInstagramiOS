@@ -88,25 +88,38 @@ class AuthViewModel: ObservableObject {
         
         let firebaseCredential = OAuthProvider.credential(withProviderID: "apple.com", idToken: tokenString, rawNonce: nonce)
         
-        Auth.auth().signIn(with: firebaseCredential) { result, error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
+        // get anonymous image url
+        ImageUploader.getAnonymousImage { imageUrl in
+            
+            print("DEBUG: Anonymous image url: \(imageUrl)")
+            
+            // Firebase Auth
+            Auth.auth().signIn(with: firebaseCredential) { result, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                // User successfully logged in to the app using Apple Sign in
+                print("DEBUG: User successfully logged in to the app using Apple Sign in...")
+                
+                guard let user = result?.user else { return }
+                
+                let data = ["email": user.email, "username": user.displayName ?? user.email, "fullname": user.displayName ?? user.email, "profileImageURL": user.photoURL == nil ? imageUrl : user.photoURL?.absoluteString, "uid": user.uid]
+                
+                print("DEBUG: Apple user Data: \(data)")
+                                
+                COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { _ in
+                    print("DEBUG: Successfully uploaded user data..")
+                    self.userSession = user
+                    self.fetchUser()
+                }
             }
             
-            // User successfully logged in to the app using Apple Sign in
-            print("DEBUG: User successfully logged in to the app using Apple Sign in...")
-            
-            guard let user = result?.user else { return }
-            
-            let data = ["email": user.email, "username": user.displayName, "fullname": user.displayName, "profileImageURL": user.photoURL?.absoluteString, "uid": user.uid]
-                            
-            COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { _ in
-                print("DEBUG: Successfully uploaded user data..")
-                self.userSession = user
-                self.fetchUser()
-            }
         }
+        
+        
+        
     }
     
     func facebookLogin(credentials: AuthCredential) {

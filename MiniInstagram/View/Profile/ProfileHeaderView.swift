@@ -52,6 +52,7 @@ struct ProfileHeaderView: View {
                 if !viewModel.user.isCurrentUser {
                     BackButtonView(inProfileView: true)
                         .padding()
+                        .offset(y: -50)
                 }
                 
                 Spacer()
@@ -171,11 +172,11 @@ struct ProfileHeaderView: View {
         //        .background(Color(UIColor.systemGray6))
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                BackButtonView(inProfileView: true)
-            }
-        }
+//        .toolbar {
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                BackButtonView(inProfileView: true)
+//            }
+//        }
     }
 }
 

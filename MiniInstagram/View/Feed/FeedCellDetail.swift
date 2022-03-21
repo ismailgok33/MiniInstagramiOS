@@ -11,6 +11,7 @@ import Kingfisher
 
 struct FeedCellDetail: View {
     
+    @Environment(\.currentTab) var tab
     @ObservedObject var feedViewModel: FeedCellViewModel
     @ObservedObject var commentViewModel: CommentViewModel
     @State var commentText = ""
@@ -25,9 +26,12 @@ struct FeedCellDetail: View {
     
     var body: some View {
         ZStack {
+            
             VStack {
                 // Feed Cell
-                FeedCell(post: feedViewModel.post, deleteAction: nil)
+                
+                    FeedCell(post: feedViewModel.post, deleteAction: nil)
+                    .frame(maxHeight: getRect().height / 2)
                 
 //                if feedViewModel.post.likes > 0 {
 //                    // Who liked the post

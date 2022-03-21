@@ -10,6 +10,7 @@ import SwiftUI
 struct FeedView: View {
     
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.currentTab) var tab
     @ObservedObject var viewModel = FeedViewModel()
     
     var body: some View {

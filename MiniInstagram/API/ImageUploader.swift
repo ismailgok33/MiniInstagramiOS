@@ -42,4 +42,13 @@ struct ImageUploader {
             }
         }
     }
+    
+    static func getAnonymousImage(completion: @escaping (String) -> Void) {
+        let ref = Storage.storage().reference(withPath: "/profile_images/no_profile_picture.png")
+        
+        ref.downloadURL { url, _ in
+            guard let imageUrl = url?.absoluteString else { return }
+            completion(imageUrl)
+        }
+    }
 }

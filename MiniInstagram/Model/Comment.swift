@@ -17,6 +17,7 @@ struct Comment: Identifiable, Decodable {
     let timestamp: Timestamp
     let uid: String
     
+    var user: User?
     
     var timestampString: String? {
         let formatter = DateComponentsFormatter()

@@ -14,6 +14,7 @@ struct FeedCell: View {
     @ObservedObject var viewModel: FeedCellViewModel
     @ObservedObject var commentViewModel: CommentViewModel
     @Environment(\.presentationMode) var presentation
+    @Environment(\.currentTab) var tab
     @State var showNotification = false
     
     var deleteAction: ((String) -> Void)?
@@ -30,9 +31,9 @@ struct FeedCell: View {
         return viewModel.post.ownerUid == AuthViewModel.shared.currentUser?.id
     }
     
-//    init(viewModel: FeedCellViewModel) {
-//        self.viewModel = viewModel
-//    }
+    //    init(viewModel: FeedCellViewModel) {
+    //        self.viewModel = viewModel
+    //    }
     
     init(post: Post, deleteAction: ((String) -> Void)?) {
         self.deleteAction = deleteAction
@@ -45,29 +46,58 @@ struct FeedCell: View {
             
             // user info
             HStack {
-                NavigationLink {
+                
+                if isPostOwner { // if the tapped user is the current user
                     
-                    if let user = viewModel.post.user {
-                        LazyView(ProfileView(user: user))
-                    }
-                } label: {
-                    KFImage(URL(string: viewModel.post.ownerImageURL))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 36, height: 36)
-                        .clipped()
-                        .cornerRadius(18)
-                    
-                    VStack(alignment: .leading) {
-                        Text(viewModel.post.ownerUsername)
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(Color("text_header"))
+                    Button {
+                        tab.wrappedValue = 4 // go to profile tab
+                    } label: {
+                        KFImage(URL(string: viewModel.post.ownerImageURL))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 36, height: 36)
+                            .clipped()
+                            .cornerRadius(18)
                         
-                        Text("Los Angeles")
-                            .font(.system(size: 12, weight: .semibold))
-                            .foregroundColor(Color("text_gray"))
-                    } //: VStack
+                        VStack(alignment: .leading) {
+                            Text(viewModel.post.ownerUsername)
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(Color("text_header"))
+                            
+                            Text("Los Angeles")
+                                .font(.system(size: 12, weight: .semibold))
+                                .foregroundColor(Color("text_gray"))
+                        } //: VStack
+                    }
+                    
                 }
+                else { // if the tapped user is someone else
+                    NavigationLink {
+                        
+                        if let user = viewModel.post.user {
+                            LazyView(ProfileView(user: user))
+                        }
+                    } label: {
+                        KFImage(URL(string: viewModel.post.ownerImageURL))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 36, height: 36)
+                            .clipped()
+                            .cornerRadius(18)
+                        
+                        VStack(alignment: .leading) {
+                            Text(viewModel.post.ownerUsername)
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(Color("text_header"))
+                            
+                            Text("Los Angeles")
+                                .font(.system(size: 12, weight: .semibold))
+                                .foregroundColor(Color("text_gray"))
+                        } //: VStack
+                    }
+                }
+                
+                
                 
                 Spacer()
                 
@@ -88,10 +118,10 @@ struct FeedCell: View {
                         } label: {
                             Text("Delete")
                         }
-
+                        
                     }
                     else {
-                       
+                        
                         Button {
                             self.showNotification = true
                             
@@ -115,35 +145,36 @@ struct FeedCell: View {
                         .padding(.trailing, 6)
                         .foregroundColor(Color(UIColor.secondaryLabel))
                 }
-               
+                
                 
             } //: HStack
             .padding([.leading, .bottom], 8)
             
-//            // Image ZStack
-//            ZStack() {
-//                // post images
-//                KFImage(URL(string: viewModel.post.imageURL))
-//                    .resizable()
-//                    .scaledToFill()
-//                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 400)
-//                    .clipped()
-//
-//                // action buttons
-//                PostActionButtonView(viewModel: viewModel, commentViewModel: commentViewModel)
-//
-//            } //: ZStack
-           
+            //            // Image ZStack
+            //            ZStack() {
+            //                // post images
+            //                KFImage(URL(string: viewModel.post.imageURL))
+            //                    .resizable()
+            //                    .scaledToFill()
+            //                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 400)
+            //                    .clipped()
+            //
+            //                // action buttons
+            //                PostActionButtonView(viewModel: viewModel, commentViewModel: commentViewModel)
+            //
+            //            } //: ZStack
+            
             ZStack {
                 Spacer()
                 
                 KFImage(URL(string: viewModel.post.imageURL))
                     .resizable()
-                    .scaledToFill()
-                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 400)
+                    .scaledToFit()
+                    .frame(width: getRect().width, height: 350)
+//                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 350)
                     .clipped()
                     .overlay(PostActionButtonView(viewModel: viewModel, commentViewModel: commentViewModel), alignment: .bottom)
-            }
+            } //: ZStack
             
         } //: VStack
         
@@ -275,12 +306,12 @@ struct PostActionButtonView: View {
             
             
         } //: HStack
-//        .foregroundColor(.black)
+        //        .foregroundColor(.black)
         .frame(width: getRect().width - 50, height: 50)
         .padding(.horizontal)
         .background(
-//            Color.gray
-//                .opacity(0.5)
+            //            Color.gray
+            //                .opacity(0.5)
             Color("post_action_bg_color")
         )
         .clipShape(Capsule())
