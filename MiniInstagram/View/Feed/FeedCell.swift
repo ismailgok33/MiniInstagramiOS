@@ -169,9 +169,10 @@ struct FeedCell: View {
                 
                 KFImage(URL(string: viewModel.post.imageURL))
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: getRect().width, height: 350)
-//                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 350)
+//                    .scaledToFit()
+//                    .frame(width: getRect().width, height: 350)
+                    .scaledToFill()
+                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 350)
                     .clipped()
                     .overlay(PostActionButtonView(viewModel: viewModel, commentViewModel: commentViewModel), alignment: .bottom)
             } //: ZStack

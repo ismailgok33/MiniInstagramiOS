@@ -12,7 +12,7 @@ import FBSDKLoginKit
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
-    @State var manager = LoginManager()
+//    @State var manager = LoginManager()
     @EnvironmentObject var viewModel: AuthViewModel
     @Environment(\.colorScheme) var colorScheme
     
@@ -186,7 +186,7 @@ struct LoginView: View {
                     .background(Color("background_color").cornerRadius(20))
 
                     
-                }
+                } //: VStack
                 .background(Color.clear)
                 .frame(maxWidth: .infinity)
                 

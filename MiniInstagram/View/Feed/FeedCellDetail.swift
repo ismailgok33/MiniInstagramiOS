@@ -28,54 +28,63 @@ struct FeedCellDetail: View {
         ZStack {
             
             VStack {
-                // Feed Cell
-                
-                    FeedCell(post: feedViewModel.post, deleteAction: nil)
-                    .frame(maxHeight: getRect().height / 2)
-                
-//                if feedViewModel.post.likes > 0 {
-//                    // Who liked the post
-//                    HStack {
-//
-//                        Circle()
-//                            .frame(width: 50, height: 50)
-//                            .foregroundColor(.blue)
-//
-//                        VStack(alignment: .leading) {
-//
-//                            Text("Liked by")
-//                                .font(.system(size: 14, weight: .semibold))
-//
-//                            Text("Sean, John,")
-//                                .font(.system(size: 14, weight: .bold))
-//                            + Text("and 120 others")
-//                                .font(.system(size: 14, weight: .regular))
-//
-//                        } //: VStack
-//
-//
-//                        Spacer()
-//
-//                    } //: HStack
-//                }
-                
-                
-                // Comment Cell
+               
                 ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 24) {
-                        ForEach(commentViewModel.comments) { comment in
-                            CommentCell(viewModel: commentViewModel, comment: comment)
+                    
+                    VStack {
+                        // Feed Cell
+                        FeedCell(post: feedViewModel.post, deleteAction: nil)
+                        .frame(maxHeight: getRect().height / 2)
+                    
+    //                if feedViewModel.post.likes > 0 {
+    //                    // Who liked the post
+    //                    HStack {
+    //
+    //                        Circle()
+    //                            .frame(width: 50, height: 50)
+    //                            .foregroundColor(.blue)
+    //
+    //                        VStack(alignment: .leading) {
+    //
+    //                            Text("Liked by")
+    //                                .font(.system(size: 14, weight: .semibold))
+    //
+    //                            Text("Sean, John,")
+    //                                .font(.system(size: 14, weight: .bold))
+    //                            + Text("and 120 others")
+    //                                .font(.system(size: 14, weight: .regular))
+    //
+    //                        } //: VStack
+    //
+    //
+    //                        Spacer()
+    //
+    //                    } //: HStack
+    //                }
+                    
+                    
+                    // Comment Cell
+                        LazyVStack(alignment: .leading, spacing: 24) {
+                            ForEach(commentViewModel.comments) { comment in
+                                CommentCell(viewModel: commentViewModel, comment: comment)
+                            }
                         }
-                    }
-                }
-                .padding(.top)
-                .frame(width: getRect().width)
-                .background(
-                    Color.gray
-                    .opacity(0.1)
-                )
-                .ignoresSafeArea(.all, edges: [.bottom])
-                .padding(.top)
+                    
+                    .padding(.top)
+                    .frame(width: getRect().width)
+                    .background(
+                        Color.gray
+                        .opacity(0.1)
+                    )
+                    .ignoresSafeArea(.all, edges: [.bottom])
+                    .padding(.top)
+                        
+                    } //: VStack - inner
+                    
+                } //: ScrollView
+                
+                
+                    
                 
                 // input view
                 CustomInputView(inputText: $commentText, action: uploadComment)
