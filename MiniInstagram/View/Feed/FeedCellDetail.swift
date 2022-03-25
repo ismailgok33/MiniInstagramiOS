@@ -35,6 +35,7 @@ struct FeedCellDetail: View {
                         // Feed Cell
                         FeedCell(post: feedViewModel.post, deleteAction: nil)
                         .frame(maxHeight: getRect().height / 2)
+                        .padding(.top)
                     
     //                if feedViewModel.post.likes > 0 {
     //                    // Who liked the post
@@ -72,19 +73,20 @@ struct FeedCellDetail: View {
                     
                     .padding(.top)
                     .frame(width: getRect().width)
-                    .background(
-                        Color.gray
-                        .opacity(0.1)
-                    )
-                    .ignoresSafeArea(.all, edges: [.bottom])
-                    .padding(.top)
+//                    .background(
+//                        Color.gray
+//                        .opacity(0.1)
+//                    )
+//                    .ignoresSafeArea(.all, edges: [.bottom])
                         
                     } //: VStack - inner
                     
                 } //: ScrollView
-                
-                
-                    
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [.white, .gray]), startPoint: .top, endPoint: .bottom)
+                        .opacity(0.3)
+                )
+                .ignoresSafeArea(.all, edges: [.bottom])
                 
                 // input view
                 CustomInputView(inputText: $commentText, action: uploadComment)
@@ -92,7 +94,7 @@ struct FeedCellDetail: View {
             } //: VStack
             // Move vstack up when keyboard is active
             .offset(y: -self.value)
-            .animation(.spring())
+            .animation(.default)
             .onAppear {
                 NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { noti in
                     let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect

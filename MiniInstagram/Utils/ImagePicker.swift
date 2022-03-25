@@ -11,6 +11,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var image: UIImage?
     @Environment(\.presentationMode) var mode
+    @Environment(\.currentTab) var tab
     var sourceType: UIImagePickerController.SourceType
     
     func makeUIViewController(context: Context) -> some UIViewController {
@@ -42,5 +43,10 @@ struct ImagePicker: UIViewControllerRepresentable {
             self.parent.mode.wrappedValue.dismiss()
             
         }
+        
+//        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//            self.parent.tab.wrappedValue = 0
+//            self.parent.mode.wrappedValue.dismiss()
+//        }
     }
 }

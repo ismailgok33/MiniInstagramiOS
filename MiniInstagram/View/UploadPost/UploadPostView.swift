@@ -65,14 +65,14 @@ struct UploadPostView: View {
                             .resizable()
                             .scaledToFill()
 //                            .frame(width: 96, height: 96)
-                            .frame(maxHeight: 400)
+                            .frame(maxHeight: 350)
                             .frame(width: getRect().width)
                             .padding(.horizontal, 20)
                             .clipped()
                         
                         //                    TextField("Enter your caption...", text: $captionText)
                         TextArea(text: $captionText, placeholder: "Enter your caption..")
-                            .frame(height: 200)
+                            .frame(height: 150)
                             .frame(width: getRect().width)
                             .padding(.horizontal, 20)
                     }
@@ -114,10 +114,7 @@ struct UploadPostView: View {
                                 accessingPhotos = true
                                 
                                 viewModel.uploadPost(caption: captionText, image: image) { _ in
-                                    captionText = ""
-                                    postImage = nil
-                                    accessingPhotos = false
-                                    tabIndex = 0
+                                    returnToFeedView()
                                 }
                             }
                         } label: {
@@ -157,15 +154,11 @@ struct UploadPostView: View {
                         self.accessingPhotos = true
                     },
                     .destructive(Text("Cancel")){
-                        captionText = ""
-                        postImage = nil
-                        tabIndex = 0
-                        showActionSheet = false
+                        returnToFeedView()
                     }
                     //                    .cancel()
                 ])
             }
-            
             
             
             if viewModel.isUploading {
@@ -173,10 +166,26 @@ struct UploadPostView: View {
             }
             
         } //: ZStack
+        .onDisappear(perform: {
+            showActionSheet = false
+        })
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
+        .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onEnded({ value in
+            if value.translation.height > 0 { // down drag gesture
+                print("DEBUG: down drag gesture detected..")
+                UIApplication.shared.endEditing()
+            }
+        }))
         
+    }
+    
+    func returnToFeedView() {
+        captionText = ""
+        postImage = nil
+        accessingPhotos = false
+        tabIndex = 0
     }
 }
 

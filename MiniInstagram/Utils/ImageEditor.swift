@@ -26,6 +26,9 @@ struct ImageEditor: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> some UIViewController {
         let editor = Mantis.cropViewController(image: theImage ?? UIImage())
+        editor.config.presetFixedRatioType = .alwaysUsingOnePresetFixedRatio(ratio: 1.0)
+        editor.config.cropShapeType = .square
+        
         print("DEBUG: mantis is initialized")
         editor.delegate = context.coordinator
         return editor
@@ -45,12 +48,13 @@ class ImageEditorCoordinator: NSObject, CropViewControllerDelegate {
     
     func cropViewControllerDidCrop(_ cropViewController: CropViewController, cropped: UIImage, transformation: Transformation) {
         print("DEBUG: image is cropped")
+        print("DEBUG: cropped image from Mantis is \(cropped.size)")
         croppedImage = cropped
         isShowing = false
     }
     
     func cropViewControllerDidFailToCrop(_ cropViewController: CropViewController, original: UIImage) {
-        
+
     }
     
     func cropViewControllerDidCancel(_ cropViewController: CropViewController, original: UIImage) {
@@ -62,7 +66,9 @@ class ImageEditorCoordinator: NSObject, CropViewControllerDelegate {
     }
     
     func cropViewControllerDidEndResize(_ cropViewController: CropViewController, original: UIImage, cropInfo: CropInfo) {
-        
+//        if cropInfo.cropSize.width < UIScreen.main.bounds.width {
+//            cropInfo.cropSize.width = UIScreen.main.bounds.width
+//        }
     }
     
     

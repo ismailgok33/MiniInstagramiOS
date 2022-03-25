@@ -164,18 +164,16 @@ struct FeedCell: View {
             //
             //            } //: ZStack
             
-            ZStack {
-                Spacer()
+//            ZStack {
+//                Spacer()
                 
                 KFImage(URL(string: viewModel.post.imageURL))
                     .resizable()
-//                    .scaledToFit()
-//                    .frame(width: getRect().width, height: 350)
+                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: getRect().width)
                     .scaledToFill()
-                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 350)
                     .clipped()
                     .overlay(PostActionButtonView(viewModel: viewModel, commentViewModel: commentViewModel), alignment: .bottom)
-            } //: ZStack
+//            } //: ZStack
             
         } //: VStack
         
@@ -208,38 +206,40 @@ struct PostActionButtonView: View {
     }
     
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 12) {
             
-            // Like HStack
-            HStack {
-                
+            // Like Button
                 Button {
                     didLike ? viewModel.unlike() : viewModel.like()
                 } label: {
-                    //                                Image(systemName: didLike ? "heart.fill" : "heart")
-                    Image("post_like_icon")
-                        .resizable()
-                        .scaledToFill()
-                    //                                    .foregroundColor(didLike ? .red : .black)
-                        .foregroundColor(.black)
-                        .frame(width: 24, height: 24)
-                        .font(.system(size: 24))
-                    //                                    .padding(4)
+
+                    HStack {
+                        Image("post_like_icon")
+                            .resizable()
+                            .scaledToFill()
+                            .foregroundColor(.black)
+                            .frame(width: 24, height: 24)
+                            .font(.system(size: 24))
+                        //                                    .padding(4)
+                        
+                        Text(viewModel.likesString)
+                            .font(.system(size: 14, weight: .semibold))
+                            .padding(.leading, 8)
+                            .padding(.bottom, 2)
+                            .foregroundColor(Color("text_header"))
                     
-                    Text(viewModel.likesString)
-                        .font(.system(size: 14, weight: .semibold))
-                        .padding(.leading, 8)
-                        .padding(.bottom, 2)
-                        .foregroundColor(Color("text_header"))
+                    } //: HStack
+                    .frame(width: 80, height: 40)
+                    .background(
+                        Color("post_action_bg_active_color")
+                            .opacity(didLike ? 1 : 0)
+                            
+                    )
+                    .clipShape(Capsule())
+                    
+                    
                 }
-                
-            } //: HStack
-            .frame(minWidth: 80, idealWidth: 80, maxWidth: 80, minHeight: 40, idealHeight: 40, maxHeight: 40, alignment: .center)
-            .background(
-                Color("post_action_bg_active_color")
-                    .opacity(didLike ? 1 : 0)
-            )
-            .clipShape(Capsule())
+            
             
             // Comment HStack
             HStack {
@@ -274,7 +274,7 @@ struct PostActionButtonView: View {
             
             
             Button {
-                print("DEBUG: button is tapped")
+                
             } label: {
                 Image("post_message_icon")
                     .resizable()
@@ -310,11 +310,7 @@ struct PostActionButtonView: View {
         //        .foregroundColor(.black)
         .frame(width: getRect().width - 50, height: 50)
         .padding(.horizontal)
-        .background(
-            //            Color.gray
-            //                .opacity(0.5)
-            Color("post_action_bg_color")
-        )
+        .background( Color("post_action_bg_color") )
         .clipShape(Capsule())
         .padding(.bottom)
     }

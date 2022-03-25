@@ -29,9 +29,10 @@ struct TextArea: View {
             
             TextEditor(text: $text)
                 .lineSpacing(10)
-                .autocapitalization(.words)
+                .autocapitalization(.sentences)
                 .disableAutocorrection(true)
                 .padding(4)
+                .foregroundColor(Color("text_header"))
             
         }
         .overlay(
